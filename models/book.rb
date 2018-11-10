@@ -58,7 +58,16 @@ class Book
   # Reader function
 
   def title
-    return @title.downcase.capitalize
+    return capitalize_title(@title)
+  end
+
+  def capitalize_title(title)
+    # Split string into array
+    title_array = title.downcase.split
+    # Capitalize each word
+    title_array.each{|word| word.capitalize!}
+    # Return completed string
+    return title_array.join(" ")
   end
 
 end
