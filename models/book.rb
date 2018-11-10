@@ -16,6 +16,11 @@ class Book
 
   # Class functions
 
+  def self.delete_all
+    sql = "DELETE FROM books"
+    SqlRunner.run(sql)
+  end
+
   # Instance functions
 
   def save
