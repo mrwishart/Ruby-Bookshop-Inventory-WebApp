@@ -14,6 +14,13 @@ class Genre
 
   # Instance functions
 
+  def save
+    sql = "INSERT INTO genres (title) VALUES ($1) RETURNING id"
+    values = [@title.downcase]
+    new_id = SqlRunner.run(sql, values)
+    @id = new_id[0]['id'].to_i
+  end
+
   # Reader function
 
   def title

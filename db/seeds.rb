@@ -33,6 +33,11 @@ new_genre2 = Genre.new(genre2)
 new_genre3 = Genre.new(genre3)
 new_genre4 = Genre.new(genre4)
 
+new_genre1.save
+new_genre2.save
+new_genre3.save
+new_genre4.save
+
 # new_author1.delete - Used to test delete instance function
 
 # p Author.find_by_id(new_author1.id) - Used to test find_by_id class
