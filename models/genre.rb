@@ -12,6 +12,11 @@ class Genre
 
   # Class functions
 
+  def self.delete_all
+    sql = "DELETE FROM genres"
+    SqlRunner.run(sql)
+  end
+
   # Instance functions
 
   def save

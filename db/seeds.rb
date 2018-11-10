@@ -7,6 +7,7 @@ require_relative('../models/wholesaler')
 require('pry-byebug')
 
 Author.delete_all()
+Genre.delete_all()
 
 author1 = {"first_name" => "douGLas", "last_name" => "aDAMS"}
 author2 = {"first_name" => "John", "last_name" => "Lloyd"}
