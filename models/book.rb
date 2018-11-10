@@ -58,7 +58,7 @@ class Book
   end
 
   def genres
-    sql = "SELECT genres.* from genres INNER JOIN bookgenres ON bookgenres.genre_id = genres.id WHERE bookgenres.book_id = $1"
+    sql = "SELECT genres.* from genres INNER JOIN bookgenres ON bookgenres.genre_id = genres.id WHERE bookgenres.book_id = $1 ORDER BY genres.title"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map {|genre| Genre.new(genre)}
