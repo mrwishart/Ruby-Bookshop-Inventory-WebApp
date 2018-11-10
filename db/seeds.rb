@@ -52,6 +52,8 @@ book2 = {'title' => "The Bible", "description" => "It's the Bible. What else do 
 new_book1 = Book.new(book1)
 new_book2 = Book.new(book2)
 
+new_book1.save
+new_book2.save
 
 binding.pry
 nil
