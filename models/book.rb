@@ -49,6 +49,12 @@ class Book
     SqlRunner.run(sql, values)
   end
 
+  def delete
+    sql = "DELETE FROM books where id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   # Reader function
 
   def title
