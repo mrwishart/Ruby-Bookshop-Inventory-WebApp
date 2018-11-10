@@ -25,7 +25,14 @@ class Author
     return Author.new(result.first)
   end
 
-  # Instance functions
+  def self.find_by_name(name)
+    sql = "SELECT * FROM authors WHERE first_name = $1 OR last_name = $1"
+    values = [name.downcase]
+    results = SqlRunner.run(sql, values)
+    return results.map {|author| Author.new(author)}
+  end
+
+  # Instance functions (note: all info going to db downcased to ease searchs)
 
   def save
     sql = "INSERT INTO authors (first_name, last_name) VALUES ($1, $2) RETURNING id"
@@ -46,7 +53,7 @@ class Author
     SqlRunner.run(sql, values)
   end
 
-  # Reader functions
+  # Reader functions - Added for prettier output to user.
 
   def first_name
     return @first_name.downcase.capitalize
