@@ -64,6 +64,20 @@ class Book
     return results.map {|genre| Genre.new(genre)}
   end
 
+# Method designed to aid the add-genre screen
+
+  def other_genres
+    sql = "SELECT genres.*
+    FROM genres
+    WHERE genres.id NOT IN (
+    SELECT genre_id
+    FROM bookgenres
+    WHERE $1 = bookgenres.book_id)"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|genre| Genre.new(genre)}
+  end
+
   # Reader function
 
   def title
