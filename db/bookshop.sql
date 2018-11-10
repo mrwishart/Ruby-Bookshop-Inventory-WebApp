@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS bookauthors;
+DROP TABLE IF EXISTS bookgenres;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS genres;
 DROP TABLE IF EXISTS shopbooks;
@@ -22,4 +24,16 @@ CREATE TABLE shopbooks
   rrp DECIMAL(5,2),
   edition INT2,
   year_published INT2
+);
+
+CREATE TABLE bookauthors
+( id SERIAL8 PRIMARY KEY,
+  book_id INT8 REFERENCES shopbooks(id) ON DELETE CASCADE,
+  author_id INT8 REFERENCES authors(id) ON DELETE CASCADE
+);
+
+CREATE TABLE bookgenres
+( id SERIAL8 PRIMARY KEY,
+  book_id INT8 REFERENCES shopbooks(id) ON DELETE CASCADE,
+  genre_id INT8 REFERENCES genres(id) ON DELETE CASCADE
 );
