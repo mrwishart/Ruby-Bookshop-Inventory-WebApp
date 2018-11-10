@@ -43,6 +43,12 @@ class Book
     @id = new_id[0]['id'].to_i
   end
 
+  def update
+    sql = "UPDATE books SET (title, description, edition, year_published) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@title.downcase, @description, @edition, @year_published, @id]
+    SqlRunner.run(sql, values)
+  end
+
   # Reader function
 
   def title
