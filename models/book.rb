@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Book
 
-  attr_accessor :description, :edition, :year
+  attr_accessor :description, :edition, :year_published
   attr_writer :title
   attr_reader :id
 
@@ -10,7 +10,7 @@ class Book
     @id = params['id'].to_i if params['id']
     @title = params['title']
     @description = params['description']
-    @edition = params['edition'].to_i
+    @edition = params['edition']
     @year_published = params['year_published'].to_i
   end
 
@@ -21,7 +21,7 @@ class Book
   # Reader function
 
   def title
-    return title.downcase.capitalize
+    return @title.downcase.capitalize
   end
 
 end
