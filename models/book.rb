@@ -16,6 +16,12 @@ class Book
 
   # Class functions
 
+  def self.all
+    sql = "SELECT * FROM books ORDER BY title"
+    results = SqlRunner.run(sql)
+    return results.map {|book| Book.new(book)}
+  end
+
   def self.delete_all
     sql = "DELETE FROM books"
     SqlRunner.run(sql)
