@@ -39,6 +39,12 @@ class Genre
     @id = new_id[0]['id'].to_i
   end
 
+  def update
+    sql = "UPDATE genres SET title = $1 WHERE id = $2"
+    values = [@title.downcase, @id]
+    SqlRunner.run(sql, values)
+  end
+
   # Reader function
 
   def title
