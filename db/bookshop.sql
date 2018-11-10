@@ -13,3 +13,13 @@ CREATE TABLE genres
 ( id SERIAL8 PRIMARY KEY,
   title VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE shopbooks
+( id SERIAL8 PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  stock_quantity INT2,
+  rrp DECIMAL(5,2),
+  edition INT2,
+  year_published INT2
+);
