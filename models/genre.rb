@@ -12,6 +12,12 @@ class Genre
 
   # Class functions
 
+  def self.all
+    sql = "SELECT * FROM genres ORDER BY title"
+    results = SqlRunner.run(sql)
+    return results.map {|genre| Genre.new(genre)}
+  end
+
   def self.delete_all
     sql = "DELETE FROM genres"
     SqlRunner.run(sql)
