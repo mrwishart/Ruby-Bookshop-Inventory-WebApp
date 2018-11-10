@@ -27,4 +27,10 @@ class Author
     @id = new_id[0]['id'].to_i
   end
 
+  def delete
+    sql = "DELETE FROM authors where id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 end
