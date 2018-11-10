@@ -16,4 +16,6 @@ new_author2 = Author.new(author2)
 new_author1.save
 new_author2.save
 
-new_author1.delete
+# new_author1.delete - Used to test delete instance function
+
+p Author.find_by_id(new_author1.id)

@@ -18,6 +18,13 @@ class Author
     SqlRunner.run(sql)
   end
 
+  def self.find_by_id(input_id)
+    sql = "SELECT * FROM authors WHERE id = $1"
+    values = [input_id]
+    result = SqlRunner.run(sql, values)
+    return Author.new(result.first)
+  end
+
   # Instance functions
 
   def save
