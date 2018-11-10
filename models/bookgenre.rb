@@ -38,4 +38,10 @@ attr_reader :id
     @id = new_id[0]['id'].to_i
   end
 
+  def update
+    sql = "UPDATE bookgenres SET (book_id, genre_id) = ($1, $2) WHERE id = $3"
+    values = [@book_id, @genre_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end
