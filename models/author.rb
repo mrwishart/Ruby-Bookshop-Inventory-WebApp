@@ -13,6 +13,12 @@ class Author
 
   # Class functions
 
+  def self.all
+    sql = "SELECT * FROM authors"
+    results = SqlRunner.run(sql)
+    return results.map {|author| Author.new(author)}
+  end
+
   def self.delete_all
     sql = "DELETE FROM authors"
     SqlRunner.run(sql)
