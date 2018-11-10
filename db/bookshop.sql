@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS bookauthors;
 DROP TABLE IF EXISTS bookgenres;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS
+books;
 DROP TABLE IF EXISTS shopbooks;
 DROP TABLE IF EXISTS neilsenbooks;
 
@@ -14,6 +16,15 @@ CREATE TABLE authors
 CREATE TABLE genres
 ( id SERIAL8 PRIMARY KEY,
   title VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE books
+( id SERIAL8 PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  edition INT2,
+  year_published INT2
+
 );
 
 CREATE TABLE shopbooks
