@@ -14,7 +14,7 @@ class Author
   # Class functions
 
   def self.all
-    sql = "SELECT * FROM authors"
+    sql = "SELECT * FROM authors ORDER BY last_name"
     results = SqlRunner.run(sql)
     return results.map {|author| Author.new(author)}
   end
@@ -32,7 +32,7 @@ class Author
   end
 
   def self.find_by_name(name)
-    sql = "SELECT * FROM authors WHERE first_name = $1 OR last_name = $1"
+    sql = "SELECT * FROM authors WHERE first_name = $1 OR last_name = $1 ORDER BY last_name"
     values = [name.downcase]
     results = SqlRunner.run(sql, values)
     return results.map {|author| Author.new(author)}
