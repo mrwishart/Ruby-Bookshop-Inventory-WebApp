@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./genre')
+require_relative('./bookgenre')
 
 class Book
 
@@ -76,6 +77,17 @@ class Book
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map {|genre| Genre.new(genre)}
+  end
+
+  def add_genre(genre)
+    # If book already has genre, return
+    return nil if genres().include?(genre)
+    #Create new BookGenre object
+    bg = BookGenre.new({"book_id" => @id, "genre_id" => genre.id})
+    #Save to db
+    bg.save
+
+    return bg
   end
 
   # Reader function
