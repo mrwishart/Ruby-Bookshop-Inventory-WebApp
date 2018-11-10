@@ -24,6 +24,10 @@ new_author2.save
 new_author3.save
 new_author4.save
 
+# new_author1.delete - Used to test delete instance function
+
+# p Author.find_by_id(new_author1.id) - Used to test find_by_id class
+
 genre1 = {"title" => "comedy"}
 genre2 = {"title" => "HoRrOr"}
 genre3 = {"title" => "Sci-fi"}
@@ -38,10 +42,6 @@ new_genre1.save
 new_genre2.save
 new_genre3.save
 new_genre4.save
-
-# new_author1.delete - Used to test delete instance function
-
-# p Author.find_by_id(new_author1.id) - Used to test find_by_id class
 
 
 
