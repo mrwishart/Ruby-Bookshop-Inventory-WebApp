@@ -4,13 +4,14 @@ class Book
 
   attr_accessor :description, :edition, :year_published
   attr_writer :title
-  attr_reader :id
+  attr_reader :id, :rrp
 
   def initialize (params)
     @id = params['id'].to_i if params['id']
     @title = params['title']
     @description = params['description']
-    @edition = params['edition'].to_i
+    @rrp = params['rrp'].to_f
+    @edition = params['edition']
     @year_published = params['year_published'].to_i
   end
 
@@ -37,15 +38,15 @@ class Book
   # Instance functions
 
   def save
-    sql = "INSERT INTO books (title, description, edition, year_published) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@title.downcase, @description, @edition, @year_published]
+    sql = "INSERT INTO books (title, description, rrp, edition, year_published) VALUES ($1, $2, $3, $4, $5) RETURNING id"
+    values = [@title.downcase, @description, @rrp, @edition, @year_published]
     new_id = SqlRunner.run(sql, values)
     @id = new_id[0]['id'].to_i
   end
 
   def update
-    sql = "UPDATE books SET (title, description, edition, year_published) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@title.downcase, @description, @edition, @year_published, @id]
+    sql = "UPDATE books SET (title, description, rrp, edition, year_published) = ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@title.downcase, @description, @rrp, @edition, @year_published, @id]
     SqlRunner.run(sql, values)
   end
 

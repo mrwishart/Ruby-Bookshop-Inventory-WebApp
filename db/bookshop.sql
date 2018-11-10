@@ -22,7 +22,8 @@ CREATE TABLE books
 ( id SERIAL8 PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  edition INT2,
+  rrp DECIMAL(5,2),
+  edition VARCHAR(255),
   year_published INT2
 
 );
@@ -45,6 +46,6 @@ CREATE TABLE bookauthors
 
 CREATE TABLE bookgenres
 ( id SERIAL8 PRIMARY KEY,
-  book_id INT8 REFERENCES shopbooks(id) ON DELETE CASCADE,
+  book_id INT8 REFERENCES books(id) ON DELETE CASCADE,
   genre_id INT8 REFERENCES genres(id) ON DELETE CASCADE
 );
