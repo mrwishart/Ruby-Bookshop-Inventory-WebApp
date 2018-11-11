@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./book')
 
 class Genre
 
@@ -49,6 +50,19 @@ class Genre
     sql = "DELETE FROM genres where id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  # Books function
+
+  def books
+    sql = "SELECT books.*
+    FROM books
+    INNER JOIN bookgenres
+    ON bookgenres.book_id = books.id
+    WHERE bookgenres.genre_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|book| Book.new(book)}
   end
 
   # Reader function
