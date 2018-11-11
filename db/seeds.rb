@@ -46,9 +46,9 @@ new_genre2.save
 new_genre3.save
 new_genre4.save
 
-book1 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "1st edition version of the Hitchhiker's Guide", "edition" => "1st", "year_published" => "1979", "rrp" => "14.99"}
+book1 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "1st edition version of the Hitchhiker's Guide", "edition" => "1st", "year_published" => "1979", "rrp" => "14.99", "quantity" => "55"}
 
-book2 = {'title' => "The Bible", "description" => "It's the Bible. What else do you need to know?", "edition" => "88th", "year_published" => "1879", "rrp" => "55.99"}
+book2 = {'title' => "The Bible", "description" => "It's the Bible. What else do you need to know?", "edition" => "88th", "year_published" => "1879", "rrp" => "55.99", "quantity" => "1"}
 
 new_book1 = Book.new(book1)
 new_book2 = Book.new(book2)
