@@ -38,3 +38,12 @@ CREATE TABLE bookgenres
   book_id INT8 REFERENCES books(id) ON DELETE CASCADE,
   genre_id INT8 REFERENCES genres(id) ON DELETE CASCADE
 );
+
+CREATE TABLE wholesalers
+( id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  contact_number VARCHAR(255),
+  discount_offered DECIMAL(5,2),
+  CHECK (discount_offered >= 0 AND discount_offered <= 100)
+);

@@ -6,11 +6,19 @@ require_relative('../models/genre')
 require_relative('../models/wholesaler')
 require('pry-byebug')
 
+Wholesaler.delete_all()
 BookAuthor.delete_all()
 BookGenre.delete_all()
 Author.delete_all()
 Genre.delete_all()
 Book.delete_all()
+
+wholesaler1 = {"name" => "Gardeners", "address" => "123 Fake Street, London, L1 1AA", "contact_number" => "07891234123", "discount_offered" => 35.00}
+wholesaler2 = {"name" => "Bernard's", "address" => "387 False Lane, Newcastle, NE1 5HX", "contact_number" => "07999112221", "discount_offered" => 45.00}
+
+new_wholesaler1 = Wholesaler.new(wholesaler1)
+new_wholesaler2 = Wholesaler.new(wholesaler2)
+
 
 author1 = {"first_name" => "douGLas", "last_name" => "aDAMS"}
 author2 = {"first_name" => "John", "last_name" => "Lloyd"}
