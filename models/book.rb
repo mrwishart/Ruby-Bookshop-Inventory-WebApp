@@ -58,6 +58,8 @@ class Book
     SqlRunner.run(sql, values)
   end
 
+  # Genre methods
+
   def genres
     sql = "SELECT genres.* from genres INNER JOIN bookgenres ON bookgenres.genre_id = genres.id WHERE bookgenres.book_id = $1 ORDER BY genres.title"
     values = [@id]
@@ -89,6 +91,8 @@ class Book
 
     return bg
   end
+
+  # Author functions
 
   # Reader function
 
