@@ -118,7 +118,7 @@ class Book
   def add_author(author)
     # If book already has author, return
     return nil if authors().include?(author)
-    #Create new BookAuthor object
+    #Create  new BookAuthor object
     ba = BookAuthor.new({"book_id" => @id, "author_id" => author.id})
     #Save to db
     ba.save

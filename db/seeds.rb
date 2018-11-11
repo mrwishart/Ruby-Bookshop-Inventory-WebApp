@@ -61,20 +61,25 @@ new_book1.add_genre(new_genre2)
 new_book1.add_genre(new_genre4)
 new_book2.add_genre(new_genre3)
 
-bookauthor_test1 = {"book_id" => new_book1.id, "author_id" => new_author1.id}
-bookauthor_test2 = {"book_id" => new_book1.id, "author_id" => new_author2.id}
-bookauthor_test3 = {"book_id" => new_book2.id, "author_id" => new_author3.id}
-bookauthor_test4 = {"book_id" => new_book2.id, "author_id" => new_author4.id}
+new_book1.add_author(new_author1)
+new_book1.add_author(new_author2)
+new_book2.add_author(new_author3)
+new_book2.add_author(new_author4)
 
-new_bookauthor1 = BookAuthor.new(bookauthor_test1)
-new_bookauthor2 = BookAuthor.new(bookauthor_test2)
-new_bookauthor3 = BookAuthor.new(bookauthor_test3)
-new_bookauthor4 = BookAuthor.new(bookauthor_test4)
-
-new_bookauthor1.save
-new_bookauthor2.save
-new_bookauthor3.save
-new_bookauthor4.save
+# bookauthor_test1 = {"book_id" => new_book1.id, "author_id" => new_author1.id}
+# bookauthor_test2 = {"book_id" => new_book1.id, "author_id" => new_author2.id}
+# bookauthor_test3 = {"book_id" => new_book2.id, "author_id" => new_author3.id}
+# bookauthor_test4 = {"book_id" => new_book2.id, "author_id" => new_author4.id}
+#
+# new_bookauthor1 = BookAuthor.new(bookauthor_test1)
+# new_bookauthor2 = BookAuthor.new(bookauthor_test2)
+# new_bookauthor3 = BookAuthor.new(bookauthor_test3)
+# new_bookauthor4 = BookAuthor.new(bookauthor_test4)
+#
+# new_bookauthor1.save
+# new_bookauthor2.save
+# new_bookauthor3.save
+# new_bookauthor4.save
 
 binding.pry
 nil
