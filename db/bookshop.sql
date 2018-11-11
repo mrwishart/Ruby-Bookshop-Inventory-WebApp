@@ -6,6 +6,15 @@ DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS wholesalers;
 
 
+CREATE TABLE wholesalers
+( id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  contact_number VARCHAR(255),
+  discount_offered DECIMAL(5,2),
+  CHECK (discount_offered >= 0 AND discount_offered <= 100)
+);
+
 CREATE TABLE authors
 ( id SERIAL8 PRIMARY KEY,
   first_name VARCHAR(255),
@@ -24,7 +33,8 @@ CREATE TABLE books
   year_published INT2,
   rrp DECIMAL(5,2),
   quantity INT2,
-  description TEXT
+  description TEXT,
+  wholesale_id INT4 REFERENCES wholesalers(id) ON DELETE SET NULL
 );
 
 CREATE TABLE bookauthors
@@ -37,13 +47,4 @@ CREATE TABLE bookgenres
 ( id SERIAL8 PRIMARY KEY,
   book_id INT8 REFERENCES books(id) ON DELETE CASCADE,
   genre_id INT8 REFERENCES genres(id) ON DELETE CASCADE
-);
-
-CREATE TABLE wholesalers
-( id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255),
-  address VARCHAR(255),
-  contact_number VARCHAR(255),
-  discount_offered DECIMAL(5,2),
-  CHECK (discount_offered >= 0 AND discount_offered <= 100)
 );

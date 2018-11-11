@@ -19,6 +19,9 @@ wholesaler2 = {"name" => "Bernard's", "address" => "387 False Lane, Newcastle, N
 new_wholesaler1 = Wholesaler.new(wholesaler1)
 new_wholesaler2 = Wholesaler.new(wholesaler2)
 
+new_wholesaler1.save
+new_wholesaler2.save 
+
 
 author1 = {"first_name" => "douGLas", "last_name" => "aDAMS"}
 author2 = {"first_name" => "John", "last_name" => "Lloyd"}
