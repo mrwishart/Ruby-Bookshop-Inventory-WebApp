@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./book')
 
 class Author
 
@@ -61,6 +62,19 @@ class Author
 
   def ==(other)
     self.id == other.id
+  end
+
+  # Books function
+
+  def books
+    sql = "SELECT books.*
+    FROM books
+    INNER JOIN bookauthors
+    ON bookauthors.book_id = books.id
+    WHERE bookauthors.author_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|book| Book.new(book)}
   end
 
   # Reader functions - Added for prettier output to user.

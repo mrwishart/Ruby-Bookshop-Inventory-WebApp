@@ -84,6 +84,8 @@ new_book1.add_author(new_author1)
 new_book1.add_author(new_author2)
 new_book2.add_author(new_author3)
 new_book2.add_author(new_author4)
+new_book3.add_author(new_author1)
+new_book4.add_author(new_author1)
 
 # bookauthor_test1 = {"book_id" => new_book1.id, "author_id" => new_author1.id}
 # bookauthor_test2 = {"book_id" => new_book1.id, "author_id" => new_author2.id}
