@@ -144,6 +144,14 @@ class Book
     return Wholesaler.new(result[0])
   end
 
+  def wholesaler_name
+    book_wholesale = wholesaler()
+
+    return "Self-Pulished" if book_wholesale.nil?
+
+    return book_wholesale.name
+  end
+
   def discount
     book_wholesale = wholesaler()
     # If there is no wholesale, return standard split
