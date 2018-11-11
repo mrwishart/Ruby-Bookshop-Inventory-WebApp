@@ -20,6 +20,7 @@ class Book
     @quantity = params['quantity'].to_i
     @description = params['description']
     @wholesale_id = params['wholesale_id']
+    @self_published_split = 50.00
   end
 
   # Class functions
@@ -141,6 +142,14 @@ class Book
     values = [@wholesale_id]
     result = SqlRunner.run(sql, values)
     return Wholesaler.new(result[0])
+  end
+
+  def discount
+    book_wholesale = wholesaler()
+    # If there is no wholesale, return standard split
+    return @self_published_split if book_wholesale.nil?
+    #Otherwise, return wholesaler's discount
+    return book_wholesale.discount_offered
   end
 
   # Reader function
