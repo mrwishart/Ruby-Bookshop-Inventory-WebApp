@@ -1,0 +1,14 @@
+require('sinatra')
+require('sinatra/contrib/all') if development?
+also_reload('./models/*')
+
+require_relative('./controllers/author_controller')
+require_relative('./controllers/book_controller')
+require_relative('./controllers/genre_controller')
+require_relative('./controllers/wholesaler_controller')
+
+# Index
+
+get '/' do
+  erb(:test)
+end
