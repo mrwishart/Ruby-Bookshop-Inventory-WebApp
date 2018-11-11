@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS bookgenres;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS genres;
 DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS shopbooks;
 
 
 CREATE TABLE authors
@@ -25,16 +24,6 @@ CREATE TABLE books
   edition VARCHAR(255),
   year_published INT2
 
-);
-
-CREATE TABLE shopbooks
-( id SERIAL8 PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  description TEXT,
-  stock_quantity INT2,
-  rrp DECIMAL(5,2),
-  edition INT2,
-  year_published INT2
 );
 
 CREATE TABLE bookauthors
