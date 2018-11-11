@@ -103,6 +103,18 @@ class Book
     return results.map {|author| Author.new(author)}
   end
 
+  def other_authors
+    sql = "SELECT authors.*
+    FROM authors
+    WHERE authors.id NOT IN (
+    SELECT author_id
+    FROM bookauthors
+    WHERE $1 = bookauthors.book_id)"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|author| Author.new(author)}
+  end
+
   # Reader function
 
   def title
