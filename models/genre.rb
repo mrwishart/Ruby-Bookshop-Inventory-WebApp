@@ -57,4 +57,8 @@ class Genre
     return @title.downcase.capitalize
   end
 
+  def ==(other)
+    self.id == other.id
+  end
+
 end
