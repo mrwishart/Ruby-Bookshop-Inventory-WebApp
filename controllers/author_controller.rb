@@ -7,5 +7,5 @@ require_relative('../models/author')
 #
 get '/author' do
   @authors = Author.all()
-  erb(:author)
+  erb(:"author/index")
 end
