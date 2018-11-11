@@ -40,7 +40,7 @@ CREATE TABLE shopbooks
 
 CREATE TABLE bookauthors
 ( id SERIAL8 PRIMARY KEY,
-  book_id INT8 REFERENCES shopbooks(id) ON DELETE CASCADE,
+  book_id INT8 REFERENCES books(id) ON DELETE CASCADE,
   author_id INT8 REFERENCES authors(id) ON DELETE CASCADE
 );
 

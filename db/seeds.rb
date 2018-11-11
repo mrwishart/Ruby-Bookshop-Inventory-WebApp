@@ -6,6 +6,7 @@ require_relative('../models/genre')
 require_relative('../models/wholesaler')
 require('pry-byebug')
 
+BookAuthor.delete_all()
 BookGenre.delete_all()
 Author.delete_all()
 Genre.delete_all()
@@ -60,20 +61,8 @@ new_book1.add_genre(new_genre2)
 new_book1.add_genre(new_genre4)
 new_book2.add_genre(new_genre3)
 
-# bookgenre1 = {"book_id" => new_book1.id, "genre_id" => new_genre1.id}
-# bookgenre2 = {"book_id" => new_book1.id, "genre_id" => new_genre2.id}
-# bookgenre3 = {"book_id" => new_book2.id, "genre_id" => new_genre3.id}
-# bookgenre4 = {"book_id" => new_book1.id, "genre_id" => new_genre4.id}
-#
-# new_bookgenre1 = BookGenre.new(bookgenre1)
-# new_bookgenre2 = BookGenre.new(bookgenre2)
-# new_bookgenre3 = BookGenre.new(bookgenre3)
-# new_bookgenre4 = BookGenre.new(bookgenre4)
-#
-# new_bookgenre1.save
-# new_bookgenre2.save
-# new_bookgenre3.save
-# new_bookgenre4.save
+bookauthor_test = {"book_id" => new_book1.id, "author_id" => new_author1.id}
+new_bookauthor = BookAuthor.new(bookauthor_test)
 
 binding.pry
 nil

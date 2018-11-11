@@ -45,7 +45,7 @@ attr_reader :id
   end
 
   def delete
-    sql = "DELETE FROM bookgenres where id = $1"
+    sql = "DELETE FROM bookauthors where id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
