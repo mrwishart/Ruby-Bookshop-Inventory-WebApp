@@ -6,7 +6,7 @@ require_relative('./bookauthor')
 
 class Book
 
-  attr_accessor :description, :edition, :year_published, :quantity
+  attr_accessor :description, :edition, :year_published, :quantity, :wholesale_id
   attr_writer :title
   attr_reader :id, :rrp
 
@@ -18,6 +18,7 @@ class Book
     @rrp = params['rrp'].to_f.round(2)
     @quantity = params['quantity'].to_i
     @description = params['description']
+    @wholesale_id = params['wholesale_id']
   end
 
   # Class functions
@@ -43,15 +44,15 @@ class Book
   # Instance functions
 
   def save
-    sql = "INSERT INTO books (title, description, rrp, edition, year_published, quantity) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
-    values = [@title.downcase, @description, @rrp, @edition, @year_published, @quantity]
+    sql = "INSERT INTO books (title, description, rrp, edition, year_published, quantity, wholesale_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
+    values = [@title.downcase, @description, @rrp, @edition, @year_published, @quantity, @wholesale_id]
     new_id = SqlRunner.run(sql, values)
     @id = new_id[0]['id'].to_i
   end
 
   def update
-    sql = "UPDATE books SET (title, description, rrp, edition, year_published, quantity) = ($1, $2, $3, $4, $5, $7) WHERE id = $6"
-    values = [@title.downcase, @description, @rrp, @edition, @year_published, @id, @quantity]
+    sql = "UPDATE books SET (title, description, rrp, edition, year_published, quantity, wholesale_id) = ($1, $2, $3, $4, $5, $7, $8) WHERE id = $6"
+    values = [@title.downcase, @description, @rrp, @edition, @year_published, @id, @quantity, @wholesale_id]
     SqlRunner.run(sql, values)
   end
 
