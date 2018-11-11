@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS bookgenres;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS genres;
 DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS wholesalers;
 
 
 CREATE TABLE authors
@@ -19,11 +20,11 @@ CREATE TABLE genres
 CREATE TABLE books
 ( id SERIAL8 PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
-  description TEXT,
-  rrp DECIMAL(5,2),
   edition VARCHAR(255),
-  year_published INT2
-
+  year_published INT2,
+  rrp DECIMAL(5,2),
+  quantity INT2,
+  description TEXT
 );
 
 CREATE TABLE bookauthors
