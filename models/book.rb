@@ -3,12 +3,13 @@ require_relative('./genre')
 require_relative('./author')
 require_relative('./bookgenre')
 require_relative('./bookauthor')
+require_relative('./wholesaler')
 
 class Book
 
-  attr_accessor :description, :edition, :year_published, :quantity, :wholesale_id
+  attr_accessor :description, :edition, :year_published, :quantity, :wholesale_id, :rrp
   attr_writer :title
-  attr_reader :id, :rrp
+  attr_reader :id
 
   def initialize (params)
     @id = params['id'].to_i if params['id']
@@ -126,6 +127,20 @@ class Book
     ba.save
 
     return ba
+  end
+
+  # Wholesaler functions
+
+  def wholesaler
+    # If book is self-published, return nil
+    return nil if @wholesale_id.nil?
+
+    sql = "SELECT wholesalers.*
+    FROM wholesalers
+    WHERE id = $1"
+    values = [@wholesale_id]
+    result = SqlRunner.run(sql, values)
+    return Wholesaler.new(result[0])
   end
 
   # Reader function
