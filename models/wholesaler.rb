@@ -54,4 +54,16 @@ class Wholesaler
     SqlRunner.run(sql, values)
   end
 
+  # Book functions
+
+  def books
+    sql = "SELECT books.*
+    FROM books
+    WHERE wholesale_id = $1
+    ORDER BY title, edition"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|book| Book.new(book)}
+  end
+
 end

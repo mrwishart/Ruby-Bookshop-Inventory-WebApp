@@ -61,11 +61,19 @@ book1 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "1st ed
 
 book2 = {'title' => "The Bible", "description" => "It's the Bible. What else do you need to know?", "edition" => "88th", "year_published" => "1879", "rrp" => "55.99", "quantity" => "1", "wholesale_id" => new_wholesaler2.id}
 
+book3 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "2nd edition version of the Hitchhiker's Guide", "edition" => "2nd", "year_published" => "1980", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
+
+book4 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "4th edition version of the Hitchhiker's Guide", "edition" => "4th", "year_published" => "1982", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
+
 new_book1 = Book.new(book1)
 new_book2 = Book.new(book2)
+new_book3 = Book.new(book3)
+new_book4 = Book.new(book4)
 
 new_book1.save
 new_book2.save
+new_book3.save
+new_book4.save
 
 new_book1.add_genre(new_genre1)
 new_book1.add_genre(new_genre2)
