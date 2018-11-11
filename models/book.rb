@@ -149,7 +149,15 @@ class Book
     # If there is no wholesale, return standard split
     return @self_published_split if book_wholesale.nil?
     #Otherwise, return wholesaler's discount
-    return book_wholesale.discount_offered
+    return book_wholesale.discount_offered.round(2)
+  end
+
+  def profit
+    return (@rrp*(discount()/100)).round(2)
+  end
+
+  def value_owed
+    return (@rrp - profit).round(2)
   end
 
   # Reader function

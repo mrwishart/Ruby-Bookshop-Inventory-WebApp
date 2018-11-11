@@ -65,15 +65,19 @@ book3 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "2nd ed
 
 book4 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "4th edition version of the Hitchhiker's Guide", "edition" => "4th", "year_published" => "1982", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
 
+book5 = {"title" => "Fifty Shades of Theresa May", "description" => "The erotic memoirs of former Prime Minister", "edition" => "1st", "year_published" => "2025", "rrp" => "15.45", "quantity" => "2"}
+
 new_book1 = Book.new(book1)
 new_book2 = Book.new(book2)
 new_book3 = Book.new(book3)
 new_book4 = Book.new(book4)
+new_book5 = Book.new(book5)
 
 new_book1.save
 new_book2.save
 new_book3.save
 new_book4.save
+new_book5.save
 
 new_book1.add_genre(new_genre1)
 new_book1.add_genre(new_genre2)
