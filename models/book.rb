@@ -115,6 +115,17 @@ class Book
     return results.map {|author| Author.new(author)}
   end
 
+  def add_author(author)
+    # If book already has author, return
+    return nil if authors().include?(author)
+    #Create new BookAuthor object
+    ba = BookAuthor.new({"book_id" => @id, "author_id" => author.id})
+    #Save to db
+    ba.save
+
+    return ba
+  end
+
   # Reader function
 
   def title

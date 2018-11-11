@@ -59,6 +59,10 @@ class Author
     SqlRunner.run(sql, values)
   end
 
+  def ==(other)
+    self.id == other.id
+  end
+
   # Reader functions - Added for prettier output to user.
 
   def first_name
