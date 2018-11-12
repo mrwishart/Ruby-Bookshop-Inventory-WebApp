@@ -1,4 +1,8 @@
 <h2><%=@wholesaler.name%></h2>
+<a href="/wholesalers/<%= @wholesaler.id %>/edit"><p>(edit)</p></a>
+<form action="/wholesalers/<%=@wholesaler.id%>/delete" method="post">
+  <input type="submit" value="DELETE WHOLESALER!">
+</form>
 
 <table>
   <tr>

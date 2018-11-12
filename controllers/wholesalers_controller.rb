@@ -22,8 +22,39 @@ post '/wholesalers' do
   redirect to '/wholesalers'
 end
 
+# EDIT
+
+get '/wholesalers/:id/edit' do
+  @wholesaler = Wholesaler.find_by_id(params['id'])
+  if @wholesaler.nil?
+    erb(:'404')
+  else
+    erb(:"wholesalers/edit")
+  end
+end
+
+#UPDATE
+
+post '/wholesalers/:id' do
+  @wholesaler = Wholesaler.new(params)
+  @wholesaler.update()
+  redirect to '/wholesalers/' + @wholesaler.id.to_s
+end
+
 #SHOW
 get '/wholesalers/:id' do
   @wholesaler = Wholesaler.find_by_id(params['id'])
   erb(:"wholesalers/show")
+end
+
+# DELETE
+
+post '/wholesalers/:id/delete' do
+  @wholesaler = Wholesaler.find_by_id(params['id'])
+  if @wholesaler.nil?
+    redirect to '/404'
+  else
+    @wholesaler.delete
+    redirect to '/wholesalers'
+  end
 end
