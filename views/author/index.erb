@@ -1,6 +1,6 @@
 <% for author in @authors %>
 
-<p>Name: <%=author.pretty_name%></p>
+<p>Name: <a href="author/<%=author.id%>"><%=author.pretty_name%></a></p>
 <hr>
 
 <% end %>

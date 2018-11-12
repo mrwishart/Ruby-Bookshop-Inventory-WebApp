@@ -1,0 +1,26 @@
+<h2><%=@author.pretty_name%></h2>
+
+<p>Books currently in-store:</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Edition</th>
+    <th>Year Published</th>
+    <th>Quantity</th>
+  </tr>
+<% for book in @author.books %>
+  <tr>
+    <td>
+      <a href="../book/<%=book.id%>">
+      <%=book.title%>
+      </a>
+    </td>
+    <td><%=book.edition%></td>
+    <td><%=book.year_published%></td>
+    <td><%=book.quantity%></td>
+  </tr>
+
+<% end %>
+
+</table>

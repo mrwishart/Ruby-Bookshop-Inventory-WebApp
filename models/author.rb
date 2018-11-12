@@ -29,6 +29,7 @@ class Author
     sql = "SELECT * FROM authors WHERE id = $1"
     values = [input_id]
     result = SqlRunner.run(sql, values)
+    return nil if result.count == 0
     return Author.new(result.first)
   end
 
