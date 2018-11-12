@@ -11,6 +11,19 @@ get '/author' do
   erb(:"author/index")
 end
 
+# NEW
+
+get '/author/new' do
+  erb(:"author/new")
+end
+
+# CREATE
+
+post '/author' do
+  Author.new(params).save
+  redirect to '/author'
+end
+
 # SHOW
 
 get '/author/:id' do
