@@ -1,5 +1,9 @@
 <h2><%=@author.pretty_name%></h2>
 
+<form action="/author/<%=@author.id%>/delete" method="post">
+  <input type="submit" value="DELETE AUTHOR!">
+</form>
+
 <p>Books currently in-store:</p>
 
 <table>

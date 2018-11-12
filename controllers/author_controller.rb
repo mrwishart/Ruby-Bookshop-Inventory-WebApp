@@ -34,3 +34,15 @@ get '/author/:id' do
     erb(:'author/show')
   end
 end
+
+# DELETE
+
+post '/author/:id/delete' do
+  @author = Author.find_by_id(params['id'])
+  if @author.nil?
+    redirect to '/404'
+  else
+    @author.delete
+    redirect to '/author'
+  end
+end
