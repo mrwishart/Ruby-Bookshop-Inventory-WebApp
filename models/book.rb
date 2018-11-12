@@ -109,6 +109,16 @@ class Book
     return bg
   end
 
+  def add_genres(genre_ids)
+
+    return nil if genre_ids.nil?
+
+    genre_ids.each { |genre_id|
+      genre = Genre.find(genre_id)
+      add_genre(genre)
+    }
+  end
+
   # Author functions
 
   def authors
@@ -152,7 +162,9 @@ class Book
   end
 
   def add_authors(author_ids)
+
     return nil if author_ids.nil?
+
     author_ids.each { |author_id|
       author = Author.find_by_id(author_id)
       add_author(author)

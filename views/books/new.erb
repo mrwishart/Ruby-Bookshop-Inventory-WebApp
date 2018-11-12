@@ -33,6 +33,19 @@
 
     <tr>
       <td>
+        <label for="genres">Genre(s):</label>
+      </td>
+      <td>
+        <select id="genres" name="genre_ids[]" size="3" multiple>
+          <% for genre in @genres %>
+            <option value="<%=genre.id%>"><%=genre.title%></option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         <label for="year-published">Year Published:</label>
       </td>
       <td>

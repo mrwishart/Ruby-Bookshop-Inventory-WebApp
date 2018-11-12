@@ -5,6 +5,7 @@ also_reload('./models/*')
 require_relative('../models/book')
 require_relative('../models/wholesaler')
 require_relative('../models/author')
+require_relative('../models/genre')
 require_relative('../models/bookauthor')
 
 # INDEX
@@ -19,6 +20,7 @@ end
 get '/books/new' do
   @wholesalers = Wholesaler.all()
   @authors = Author.all()
+  @genres = Genre.all()
   erb(:"books/new")
 end
 
@@ -29,6 +31,7 @@ post '/books' do
   new_book = Book.new(params)
   new_book.save
   new_book.add_authors(params['author_ids'])
+  new_book.add_genres(params['genre_ids'])
   redirect to '/books'
 end
 
