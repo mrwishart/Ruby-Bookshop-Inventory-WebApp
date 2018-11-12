@@ -37,8 +37,8 @@
       </a>
     </td>
     <td><%=book.edition%></td>
-    <td>£<%=book.rrp%></td>
-    <td>£<%=book.value_owed%></td>
+    <td>£<%=book.print_currency(book.rrp)%></td>
+    <td>£<%=book.print_currency(book.value_owed)%></td>
     <td><%=book.quantity%></td>
   </tr>
   <% end %>

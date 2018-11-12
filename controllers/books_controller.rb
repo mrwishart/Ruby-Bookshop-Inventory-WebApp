@@ -22,6 +22,7 @@ end
 # CREATE
 
 post '/books' do
+  params.delete('wholesale_id') if params['wholesale_id'] == '0'
   Book.new(params).save
   redirect to '/books'
 end

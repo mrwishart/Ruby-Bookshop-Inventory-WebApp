@@ -47,7 +47,7 @@
       </td>
       <td>
         <select id="wholesaler" name="wholesale_id">
-          <option value="null">Self-Published</option>
+          <option value= "0">Self-Published</option>
           <%for wholesaler in @wholesalers %>
             <option value="<%=wholesaler.id%>"><%=wholesaler.name%></option>
           <%end%>
