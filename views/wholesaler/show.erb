@@ -14,3 +14,29 @@
     <td><%=@wholesaler.discount_offered%>%</td>
   </tr>
 </table>
+<hr>
+<p>Books currently on sale:</p><br>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Edition</th>
+    <th>RRP</th>
+    <th>Value Owed</th>
+    <th>Quantity</th>
+  </tr>
+
+  <% for book in @wholesaler.books %>
+  <tr>
+    <td>
+      <a href="book/<%=book.id%>"><%=book.title%>
+      </a>
+    </td>
+    <td><%=book.edition%></td>
+    <td><%=book.rrp%></td>
+    <td><%=book.value_owed%></td>
+    <td><%=book.quantity%></td>
+  </tr>
+  <% end %>
+
+</table>

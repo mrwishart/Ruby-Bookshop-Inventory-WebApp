@@ -14,7 +14,10 @@
 
   <% for book in @books %>
   <tr>
-  <td><a href="book/<%=book.id%>"><%=book.title%></a></td>
+  <td>
+    <a href="book/<%=book.id%>"><%=book.title%>
+    </a>
+  </td>
   <td><%=book.edition%></td>
 
   <td>
@@ -36,7 +39,7 @@
     <% end %>
   <% end %>
   </td>
-  
+
   <!-- <td><%=book.year_published%></td> -->
   <td>£<%=book.print_currency(book.rrp)%></td>
   <td><%=book.discount%></td>
