@@ -60,13 +60,13 @@ new_genre3.save
 new_genre4.save
 new_genre5.save
 
-book1 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "1st edition version of the Hitchhiker's Guide", "edition" => "1st", "year_published" => "1979", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
+book1 = {"title" => "Hitchhiker's Guide To C++", "description" => "1st edition version of the Hitchhiker's Guide", "edition" => "1st", "year_published" => "1979", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
 
 book2 = {'title' => "The Bible", "description" => "It's the Bible. What else do you need to know?", "edition" => "88th", "year_published" => "1879", "rrp" => "55.99", "quantity" => "1", "wholesale_id" => new_wholesaler2.id}
 
-book3 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "2nd edition version of the Hitchhiker's Guide", "edition" => "2nd", "year_published" => "1980", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
+book3 = {"title" => "Hitchhiker's Guide To C++", "description" => "2nd edition version of the Hitchhiker's Guide", "edition" => "2nd", "year_published" => "1980", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
 
-book4 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "4th edition version of the Hitchhiker's Guide", "edition" => "4th", "year_published" => "1982", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
+book4 = {"title" => "Hitchhiker's Guide To C++", "description" => "4th edition version of the Hitchhiker's Guide", "edition" => "4th", "year_published" => "1982", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
 
 book5 = {"title" => "Fifty Shades of Theresa May", "description" => "The erotic memoirs of former Prime Minister", "edition" => "1st", "year_published" => "2025", "rrp" => "15.45", "quantity" => "2"}
 
