@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Genre(s)</th>
     <th>Edition</th>
     <th>Year Published</th>
     <th>Quantity</th>
@@ -15,6 +16,15 @@
       <a href="../book/<%=book.id%>">
       <%=book.title%>
       </a>
+    </td>
+    <td>
+      <% if book.genres.nil? %>
+        Missing: Please enter
+      <% else %>
+        <% for genre in book.genres %>
+         <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
+        <% end %>
+      <% end %>
     </td>
     <td><%=book.edition%></td>
     <td><%=book.year_published%></td>
