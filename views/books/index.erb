@@ -43,7 +43,7 @@
 
   <!-- <td><%=book.year_published%></td> -->
   <td>£<%=book.print_currency(book.rrp)%></td>
-  <td><%=book.discount%></td>
+  <td><%=book.print_currency(book.discount)%></td>
   <td>£<%=book.print_currency(book.value_owed)%></td>
   <td>£<%=book.print_currency(book.profit)%></td>
   <td><%=book.quantity%></td>

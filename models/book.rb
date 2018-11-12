@@ -40,6 +40,7 @@ class Book
     sql = "SELECT * FROM books WHERE id = $1"
     values = [input_id]
     result = SqlRunner.run(sql, values)
+    return nil if result.count == 0
     return Book.new(result.first)
   end
 

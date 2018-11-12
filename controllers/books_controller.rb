@@ -34,3 +34,15 @@ get '/books/:id' do
   @book = Book.find_by_id(params['id'])
   erb (:"books/show")
 end
+
+# DELETE
+
+post '/books/:id/delete' do
+  @book = Book.find_by_id(params['id'])
+  if @book.nil?
+    redirect to '/404'
+  else
+    @book.delete
+    redirect to '/books'
+  end
+end
