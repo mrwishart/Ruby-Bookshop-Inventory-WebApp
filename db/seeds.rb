@@ -46,16 +46,19 @@ genre1 = {"title" => "comedy"}
 genre2 = {"title" => "HoRrOr"}
 genre3 = {"title" => "Sci-fi"}
 genre4 = {"title" => "coding manual"}
+genre5 = {"title" => "erotic"}
 
 new_genre1 = Genre.new(genre1)
 new_genre2 = Genre.new(genre2)
 new_genre3 = Genre.new(genre3)
 new_genre4 = Genre.new(genre4)
+new_genre5 = Genre.new(genre5)
 
 new_genre1.save
 new_genre2.save
 new_genre3.save
 new_genre4.save
+new_genre5.save
 
 book1 = {"title" => "Hitchhiker's Guide To The Galaxy", "description" => "1st edition version of the Hitchhiker's Guide", "edition" => "1st", "year_published" => "1979", "rrp" => "14.99", "quantity" => "55", "wholesale_id" => new_wholesaler1.id}
 
@@ -89,6 +92,8 @@ new_book3.add_genre(new_genre4)
 new_book4.add_genre(new_genre1)
 new_book4.add_genre(new_genre2)
 new_book4.add_genre(new_genre4)
+new_book5.add_genre(new_genre5)
+new_book5.add_genre(new_genre2)
 
 new_book1.add_author(new_author1)
 new_book1.add_author(new_author2)

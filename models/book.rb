@@ -70,7 +70,17 @@ class Book
     sql = "SELECT genres.* from genres INNER JOIN bookgenres ON bookgenres.genre_id = genres.id WHERE bookgenres.book_id = $1 ORDER BY genres.title"
     values = [@id]
     results = SqlRunner.run(sql, values)
+    return nil if results.count == 0
     return results.map {|genre| Genre.new(genre)}
+  end
+
+  def genre_types
+    book_genres = genres()
+    return "Missing: Please enter" if book_genres.nil?
+
+    genre_type_array = book_genres.map {|genre| genre.title}
+
+    return genre_type_array.join(', ')
   end
 
 # Method designed to aid the add-genre screen
@@ -89,7 +99,7 @@ class Book
 
   def add_genre(genre)
     # If book already has genre, return
-    return nil if genres().include?(genre)
+    return nil if !genres().nil? && genres().include?(genre)
     #Create new BookGenre object
     bg = BookGenre.new({"book_id" => @id, "genre_id" => genre.id})
     #Save to db
@@ -131,7 +141,7 @@ class Book
 
   def add_author(author)
     # If book already has author, return
-    return nil if authors().include?(author)
+    return nil if !authors().nil? && authors().include?(author)
     #Create  new BookAuthor object
     ba = BookAuthor.new({"book_id" => @id, "author_id" => author.id})
     #Save to db
