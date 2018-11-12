@@ -12,3 +12,7 @@ require_relative('./controllers/wholesaler_controller')
 get '/' do
   erb(:test)
 end
+
+error 404 do
+  erb(:'404')
+end
