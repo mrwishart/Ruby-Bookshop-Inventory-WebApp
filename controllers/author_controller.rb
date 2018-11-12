@@ -35,6 +35,25 @@ get '/author/:id' do
   end
 end
 
+# EDIT
+
+get '/author/:id/edit' do
+  @author = Author.find_by_id(params['id'])
+  if @author.nil?
+    erb(:'404')
+  else
+    erb(:'author/edit')
+  end
+end
+
+# UPDATE
+
+post '/author/:id' do
+  @author = Author.new(params)
+  @author.update
+  redirect to '/author/' + @author.id.to_s
+end
+
 # DELETE
 
 post '/author/:id/delete' do

@@ -1,5 +1,5 @@
 <h2><%=@author.pretty_name%></h2>
-
+<a href="/author/<%= @author.id %>/edit"><p>(edit name)</p></a>
 <form action="/author/<%=@author.id%>/delete" method="post">
   <input type="submit" value="DELETE AUTHOR!">
 </form>
