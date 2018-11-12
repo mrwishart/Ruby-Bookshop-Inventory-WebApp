@@ -1,17 +1,31 @@
-<% for book in @books %>
+<table style = "width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Edition</th>
+    <th>Author(s)</th>
+    <th>Genres(s)</th>
+    <th>RRP</th>
+    <th>Discount %</th>
+    <th>Value Owed</th>
+    <th>Profit</th>
+    <th>Quantity</th>
+    <th>Wholesaler</th>
+  </tr>
 
-<p>Title: <a href="book/<%=book.id%>"><%=book.title%></a></p>
-<p>Edition: <%=book.edition%></p>
-<p>Author(s): <%=book.authors_names%></p>
-<p>Genre(s): <%=book.genre_types%></p>
-<!-- <p>Year Published: <%=book.year_published%></p> -->
-<p>RRP: £<%=book.rrp%></p>
-<p>Discount: <%=book.discount%>%</p>
-<p>Value: £<%=book.value_owed%></p>
-<p>Profit: £<%=book.profit%></p>
-<p>Quantity: <%=book.quantity%></p>
-<p>Wholesaler: <%=book.wholesaler_name%></p>
-<!-- <p>Description: <%=book.description%></p> -->
-<hr>
-
-<% end %>
+  <% for book in @books %>
+  <tr>
+  <th><a href="book/<%=book.id%>"><%=book.title%></a></th>
+  <th><%=book.edition%></th>
+  <th><%=book.authors_names%></th>
+  <th><%=book.genre_types%></th>
+  <!-- <th><%=book.year_published%></th> -->
+  <th>£<%=book.rrp%></th>
+  <th><%=book.discount%></th>
+  <th>£<%=book.value_owed%></th>
+  <th>£<%=book.profit%></th>
+  <th><%=book.quantity%></th>
+  <th><%=book.wholesaler_name%></th>
+  <!-- <th> <%=book.description%></th> -->
+  </tr>
+  <% end %>
+</table>
