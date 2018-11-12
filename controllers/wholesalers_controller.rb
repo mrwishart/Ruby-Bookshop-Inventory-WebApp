@@ -10,6 +10,18 @@ get '/wholesalers' do
   erb(:"wholesalers/index")
 end
 
+# NEW
+get '/wholesalers/new' do
+  erb(:"wholesalers/new")
+end
+
+# CREATE
+post '/wholesalers' do
+  @wholesaler = Wholesaler.new(params)
+  @wholesaler.save
+  redirect to '/wholesalers'
+end
+
 #SHOW
 get '/wholesalers/:id' do
   @wholesaler = Wholesaler.find_by_id(params['id'])

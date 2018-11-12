@@ -63,6 +63,7 @@ class Wholesaler
     ORDER BY title, edition"
     values = [@id]
     results = SqlRunner.run(sql, values)
+    return nil if results == 0
     return results.map {|book| Book.new(book)}
   end
 
