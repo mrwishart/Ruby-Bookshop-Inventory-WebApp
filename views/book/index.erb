@@ -16,20 +16,27 @@
   <tr>
   <td><a href="book/<%=book.id%>"><%=book.title%></a></td>
   <td><%=book.edition%></td>
-  <td><% if book.authors.nil? %>
+
+  <td>
+  <% if book.authors.nil? %>
     Missing: Please enter
   <% else %>
     <% for author in book.authors %>
      <a href="../author/<%=author.id%>"><%= author.pretty_name%></a><br>
     <% end %>
-  <% end %></td>
-  <td><% if book.genres.nil? %>
+  <% end %>
+  </td>
+
+  <td>
+  <% if book.genres.nil? %>
     Missing: Please enter
   <% else %>
     <% for genre in book.genres %>
      <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
     <% end %>
-  <% end %></td>
+  <% end %>
+  </td>
+  
   <!-- <td><%=book.year_published%></td> -->
   <td>£<%=book.print_currency(book.rrp)%></td>
   <td><%=book.discount%></td>

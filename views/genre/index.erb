@@ -1,5 +1,7 @@
+<ul>
 <% for genre in @genres %>
 
-<p>Type: <%=genre.title%></p>
+<li><a href="genre/<%=genre.id%>"><%=genre.title%></a></li>
 
 <% end %>
+</ul>

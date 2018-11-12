@@ -1,0 +1,36 @@
+<h2><%=@genre.title%></h2>
+
+<p>Books currently in-store:</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author(s)</th>
+    <th>Edition</th>
+    <th>Year Published</th>
+    <th>Quantity</th>
+  </tr>
+<% for book in @genre.books %>
+  <tr>
+    <td>
+      <a href="../book/<%=book.id%>">
+      <%=book.title%>
+      </a>
+    </td>
+    <td>
+      <% if book.authors.nil? %>
+        Missing: Please enter
+      <% else %>
+        <% for author in book.authors %>
+         <a href="../author/<%=author.id%>"><%= author.pretty_name%></a><br>
+        <% end %>
+      <% end %>
+    </td>
+    <td><%=book.edition%></td>
+    <td><%=book.year_published%></td>
+    <td><%=book.quantity%></td>
+  </tr>
+
+<% end %>
+
+</table>
