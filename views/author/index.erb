@@ -1,6 +1,8 @@
+<ul>
 <% for author in @authors %>
 
-<p>Name: <a href="author/<%=author.id%>"><%=author.pretty_name%></a></p>
+<li>Name: <a href="author/<%=author.id%>"><%=author.pretty_name%></a></li>
 <hr>
 
 <% end %>
+</ul>

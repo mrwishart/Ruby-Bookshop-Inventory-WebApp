@@ -1,4 +1,16 @@
-<p>Name: <%=@wholesaler.name%></p>
-<p>Address: <%=@wholesaler.address%></p>
-<p>Contact Number: <%=@wholesaler.contact_number%></p>
-<p>Discount Offered: <%=@wholesaler.discount_offered%>%</p>
+<h2><%=@wholesaler.name%></h2>
+
+<table>
+  <tr>
+    <td>Address:</td>
+    <td><%=@wholesaler.address%></td>
+  </tr>
+  <tr>
+    <td>Contact Number:</td>
+    <td><%=@wholesaler.contact_number%></td>
+  </tr>
+  <tr>
+    <td>Discount Offered:</td>
+    <td><%=@wholesaler.discount_offered%>%</td>
+  </tr>
+</table>

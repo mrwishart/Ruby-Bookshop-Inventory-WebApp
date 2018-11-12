@@ -1,13 +1,77 @@
-<p>Title: <%=@book.title%></p>
-<p>Edition: <%=@book.edition%></p>
-<p>Author(s): <%=@book.authors_names%></p>
-<p>Genre(s): <%=@book.genre_types%></p>
-<p>Year Published: <%=@book.year_published%></p>
-<p>RRP: £<%=@book.rrp%></p>
-<p>Discount: <%=@book.discount%>%</p>
-<p>Value: £<%=@book.value_owed%></p>
-<p>Profit: £<%=@book.profit%></p>
-<p>Quantity: <%=@book.quantity%></p>
-<p>Wholesaler: <%=@book.wholesaler_name%></p>
-<p>Description: <%=@book.description%></p> 
-<hr>
+<table>
+
+  <tr>
+    <td>Title:</td>
+    <td><%=@book.title%></td>
+  </tr>
+  <tr>
+    <td>Edition:</td><td> <%=@book.edition%></td>
+  </tr>
+  <tr>
+    <td>Author(s):</td>
+    <td>
+      <% if @book.authors.nil? %>
+      Missing: Please enter
+      <% else %>
+      <% @book.authors.each do |author| %>
+      <a href="../author/<%=author.id%>">
+        <%=author.pretty_name%>
+        <br>
+      </a>
+      <% end %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Genre(s):</td>
+    <td>
+      <% if @book.genres.nil? %>
+      Missing: Please enter
+      <% else %>
+      <% for genre in @book.genres %>
+      <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
+      <% end %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Year Published:</td> <td><%=@book.year_published%></td>
+  </tr>
+  <tr>
+    <td>RRP:</td>
+    <td> £<%=@book.rrp%></td>
+  </tr>
+  <tr>
+    <td>Discount:</td>
+    <td><%=@book.discount%>%</td>
+  </tr>
+  <tr>
+    <td>Value:</td>
+    <td>£<%=@book.value_owed%></td>
+  </tr>
+  <tr>
+    <td>Profit:</td>
+    <td>£<%=@book.profit%></td>
+  </tr>
+  <tr>
+    <td>Quantity:</td>
+    <td><%=@book.quantity%></td>
+  </tr>
+  <tr>
+    <td>Wholesaler:</td>
+    <td>
+      <% if !@book.wholesaler.nil? %>
+      <a href="../wholesaler/<%=@book.wholesale_id%>">
+      <% end %>
+        <%=@book.wholesaler_name%>
+      <% if !@book.wholesaler.nil? %>
+        </a>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><%=@book.description%></td>
+  </tr>
+
+</table>
