@@ -180,8 +180,16 @@ class Book
     return book_wholesale.discount_offered.round(2)
   end
 
+  def is_published?
+    return !@wholesale_id.nil?
+  end
+
   def profit
     return (@rrp*(discount()/100)).round(2)
+  end
+
+  def print_currency(amount)
+    return '%.2f' % amount
   end
 
   def value_owed

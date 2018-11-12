@@ -19,12 +19,20 @@
   <th><%=book.authors_names%></th>
   <th><%=book.genre_types%></th>
   <!-- <th><%=book.year_published%></th> -->
-  <th>£<%=book.rrp%></th>
+  <th>£<%=book.print_currency(book.rrp)%></th>
   <th><%=book.discount%></th>
-  <th>£<%=book.value_owed%></th>
-  <th>£<%=book.profit%></th>
+  <th>£<%=book.print_currency(book.value_owed)%></th>
+  <th>£<%=book.print_currency(book.profit)%></th>
   <th><%=book.quantity%></th>
-  <th><%=book.wholesaler_name%></th>
+  <th>
+    <% if book.is_published? %>
+      <a href="/wholesaler/<%=book.wholesale_id%>">
+    <% end %>
+    <%=book.wholesaler_name%>
+    <% if book.is_published? %>
+      </a>
+    <% end %>
+  </th>
   <!-- <th> <%=book.description%></th> -->
   </tr>
   <% end %>
