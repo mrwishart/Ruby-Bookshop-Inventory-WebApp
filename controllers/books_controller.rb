@@ -5,12 +5,12 @@ also_reload('./models/*')
 require_relative('../models/book')
 
 #
-get '/book/:id' do
+get '/books/:id' do
   @book = Book.find_by_id(params['id'])
-  erb (:"book/show")
+  erb (:"books/show")
 end
 
-get '/book' do
+get '/books' do
   @books = Book.all()
-  erb(:"book/index")
+  erb(:"books/index")
 end

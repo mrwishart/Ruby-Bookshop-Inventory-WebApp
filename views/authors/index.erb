@@ -1,0 +1,9 @@
+<a href="/authors/new">Add New Author</a>
+<hr>
+<ul>
+<% for author in @authors %>
+
+<li><a href="authors/<%=author.id%>"><%=author.pretty_name%></a></li>
+
+<% end %>
+</ul>

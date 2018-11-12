@@ -15,7 +15,7 @@
   <% for book in @books %>
   <tr>
   <td>
-    <a href="book/<%=book.id%>"><%=book.title%>
+    <a href="books/<%=book.id%>"><%=book.title%>
     </a>
   </td>
   <td><%=book.edition%></td>
@@ -25,7 +25,7 @@
     Missing: Please enter
   <% else %>
     <% for author in book.authors %>
-     <a href="../author/<%=author.id%>"><%= author.pretty_name%></a><br>
+     <a href="../authors/<%=author.id%>"><%= author.pretty_name%></a><br>
     <% end %>
   <% end %>
   </td>
@@ -35,7 +35,7 @@
     Missing: Please enter
   <% else %>
     <% for genre in book.genres %>
-     <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
+     <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
     <% end %>
   <% end %>
   </td>
@@ -48,7 +48,7 @@
   <td><%=book.quantity%></td>
   <td>
     <% if book.is_published? %>
-      <a href="/wholesaler/<%=book.wholesale_id%>">
+      <a href="/wholesalers/<%=book.wholesale_id%>">
     <% end %>
     <%=book.wholesaler_name%>
     <% if book.is_published? %>

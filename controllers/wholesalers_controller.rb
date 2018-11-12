@@ -5,13 +5,13 @@ also_reload('./models/*')
 require_relative('../models/wholesaler')
 
 # INDEX
-get '/wholesaler' do
+get '/wholesalers' do
   @wholesalers = Wholesaler.all()
-  erb(:"wholesaler/index")
+  erb(:"wholesalers/index")
 end
 
 #SHOW
-get '/wholesaler/:id' do
+get '/wholesalers/:id' do
   @wholesaler = Wholesaler.find_by_id(params['id'])
-  erb(:"wholesaler/show")
+  erb(:"wholesalers/show")
 end

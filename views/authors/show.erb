@@ -1,6 +1,6 @@
 <h2><%=@author.pretty_name%></h2>
-<a href="/author/<%= @author.id %>/edit"><p>(edit name)</p></a>
-<form action="/author/<%=@author.id%>/delete" method="post">
+<a href="/authors/<%= @author.id %>/edit"><p>(edit name)</p></a>
+<form action="/authors/<%=@author.id%>/delete" method="post">
   <input type="submit" value="DELETE AUTHOR!">
 </form>
 
@@ -17,7 +17,7 @@
 <% for book in @author.books %>
   <tr>
     <td>
-      <a href="../book/<%=book.id%>">
+      <a href="../books/<%=book.id%>">
       <%=book.title%>
       </a>
     </td>
@@ -26,7 +26,7 @@
         Missing: Please enter
       <% else %>
         <% for genre in book.genres %>
-         <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
+         <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
         <% end %>
       <% end %>
     </td>

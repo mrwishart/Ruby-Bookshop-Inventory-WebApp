@@ -6,62 +6,62 @@ require_relative('../models/author')
 
 # INDEX
 
-get '/author' do
+get '/authors' do
   @authors = Author.all()
-  erb(:"author/index")
+  erb(:"authors/index")
 end
 
 # NEW
 
-get '/author/new' do
-  erb(:"author/new")
+get '/authors/new' do
+  erb(:"authors/new")
 end
 
 # CREATE
 
-post '/author' do
+post '/authors' do
   Author.new(params).save
-  redirect to '/author'
+  redirect to '/authors'
 end
 
 # SHOW
 
-get '/author/:id' do
+get '/authors/:id' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
     erb(:'404')
   else
-    erb(:'author/show')
+    erb(:'authors/show')
   end
 end
 
 # EDIT
 
-get '/author/:id/edit' do
+get '/authors/:id/edit' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
     erb(:'404')
   else
-    erb(:'author/edit')
+    erb(:'authors/edit')
   end
 end
 
 # UPDATE
 
-post '/author/:id' do
+post '/authors/:id' do
   @author = Author.new(params)
   @author.update
-  redirect to '/author/' + @author.id.to_s
+  redirect to '/authors/' + @author.id.to_s
 end
 
 # DELETE
 
-post '/author/:id/delete' do
+post '/authors/:id/delete' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
     redirect to '/404'
   else
     @author.delete
-    redirect to '/author'
+    redirect to '/authors'
   end
 end

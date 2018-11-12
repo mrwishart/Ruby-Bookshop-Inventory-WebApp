@@ -2,15 +2,15 @@
 
 <table>
   <tr>
-    <td>Address:</td>
+    <td><b>Address:<b></td>
     <td><%=@wholesaler.address%></td>
   </tr>
   <tr>
-    <td>Contact Number:</td>
+    <td><b>Contact Number:<b></td>
     <td><%=@wholesaler.contact_number%></td>
   </tr>
   <tr>
-    <td>Discount Offered:</td>
+    <td><b>Discount Offered:<b></td>
     <td><%=@wholesaler.discount_offered%>%</td>
   </tr>
 </table>
@@ -29,12 +29,12 @@
   <% for book in @wholesaler.books %>
   <tr>
     <td>
-      <a href="book/<%=book.id%>"><%=book.title%>
+      <a href="../books/<%=book.id%>"><%=book.title%>
       </a>
     </td>
     <td><%=book.edition%></td>
-    <td><%=book.rrp%></td>
-    <td><%=book.value_owed%></td>
+    <td>£<%=book.rrp%></td>
+    <td>£<%=book.value_owed%></td>
     <td><%=book.quantity%></td>
   </tr>
   <% end %>

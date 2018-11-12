@@ -45,7 +45,7 @@ new_author4.save
 genre1 = {"title" => "comedy"}
 genre2 = {"title" => "HoRrOr"}
 genre3 = {"title" => "Sci-fi"}
-genre4 = {"title" => "coding manual"}
+genre4 = {"title" => "coding_manual"}
 genre5 = {"title" => "erotic"}
 
 new_genre1 = Genre.new(genre1)

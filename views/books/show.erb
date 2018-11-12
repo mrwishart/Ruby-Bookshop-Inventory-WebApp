@@ -14,7 +14,7 @@
       Missing: Please enter
       <% else %>
       <% @book.authors.each do |author| %>
-      <a href="../author/<%=author.id%>">
+      <a href="../authors/<%=author.id%>">
         <%=author.pretty_name%>
         <br>
       </a>
@@ -29,7 +29,7 @@
       Missing: Please enter
       <% else %>
       <% for genre in @book.genres %>
-      <a href="../genre/<%=genre.id%>"><%= genre.title%></a><br>
+      <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
       <% end %>
       <% end %>
     </td>
@@ -61,7 +61,7 @@
     <td>Wholesaler:</td>
     <td>
       <% if !@book.wholesaler.nil? %>
-      <a href="../wholesaler/<%=@book.wholesale_id%>">
+      <a href="../wholesalers/<%=@book.wholesale_id%>">
       <% end %>
         <%=@book.wholesaler_name%>
       <% if !@book.wholesaler.nil? %>
