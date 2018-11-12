@@ -1,9 +1,9 @@
 <h2><%=@genre.title%></h2>
 <a href="/genres/<%= @genre.id %>/edit"><p>(edit genre)</p></a>
-<p>Books currently in-store:</p>
 <form action="/genres/<%=@genre.id%>/delete" method="post">
   <input type="submit" value="DELETE GENRE!">
 </form>
+<p>Books currently in-store:</p>
 
 <table>
   <tr>
