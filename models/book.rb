@@ -104,7 +104,17 @@ class Book
     sql = "SELECT authors.* from authors INNER JOIN bookauthors ON bookauthors.author_id = authors.id WHERE bookauthors.book_id = $1 ORDER BY authors.last_name"
     values = [@id]
     results = SqlRunner.run(sql, values)
+    return nil if results.count == 0
     return results.map {|author| Author.new(author)}
+  end
+
+  def authors_names
+    book_authors = authors()
+    return "Missing: Please enter" if book_authors.nil?
+
+    author_name_array = book_authors.map {|author| author.pretty_name}
+
+    return author_name_array.join(', ')
   end
 
   def other_authors
@@ -147,7 +157,7 @@ class Book
   def wholesaler_name
     book_wholesale = wholesaler()
 
-    return "Self-Pulished" if book_wholesale.nil?
+    return "Self-Published" if book_wholesale.nil?
 
     return book_wholesale.name
   end
