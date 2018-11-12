@@ -6,7 +6,7 @@
         <label for="title">Title:</label>
       </td>
       <td>
-        <input id="title" type="text" name="title">
+        <input id="title" type="text" name="title" value="Please Enter Title">
       </td>
     </tr>
     <tr>
@@ -17,6 +17,20 @@
         <input id="edition" type="text" name="edition">
       </td>
     </tr>
+
+    <tr>
+      <td>
+        <label for="authors">Author(s):</label>
+      </td>
+      <td>
+        <select id="authors" name="author_ids[]" size="3" multiple>
+          <% for author in @authors %>
+            <option value="<%=author.id%>"><%=author.pretty_name%></option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+
     <tr>
       <td>
         <label for="year-published">Year Published:</label>

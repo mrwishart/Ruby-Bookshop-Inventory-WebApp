@@ -151,6 +151,14 @@ class Book
     return ba
   end
 
+  def add_authors(author_ids)
+    return nil if author_ids.nil?
+    author_ids.each { |author_id|
+      author = Author.find_by_id(author_id)
+      add_author(author)
+    }
+  end
+
   # Wholesaler functions
 
   def wholesaler
