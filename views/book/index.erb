@@ -14,17 +14,17 @@
 
   <% for book in @books %>
   <tr>
-  <th><a href="book/<%=book.id%>"><%=book.title%></a></th>
-  <th><%=book.edition%></th>
-  <th><%=book.authors_names%></th>
-  <th><%=book.genre_types%></th>
-  <!-- <th><%=book.year_published%></th> -->
-  <th>£<%=book.print_currency(book.rrp)%></th>
-  <th><%=book.discount%></th>
-  <th>£<%=book.print_currency(book.value_owed)%></th>
-  <th>£<%=book.print_currency(book.profit)%></th>
-  <th><%=book.quantity%></th>
-  <th>
+  <td><a href="book/<%=book.id%>"><%=book.title%></a></td>
+  <td><%=book.edition%></td>
+  <td><%=book.authors_names%></td>
+  <td><%=book.genre_types%></td>
+  <!-- <td><%=book.year_published%></td> -->
+  <td>£<%=book.print_currency(book.rrp)%></td>
+  <td><%=book.discount%></td>
+  <td>£<%=book.print_currency(book.value_owed)%></td>
+  <td>£<%=book.print_currency(book.profit)%></td>
+  <td><%=book.quantity%></td>
+  <td>
     <% if book.is_published? %>
       <a href="/wholesaler/<%=book.wholesale_id%>">
     <% end %>
@@ -32,8 +32,8 @@
     <% if book.is_published? %>
       </a>
     <% end %>
-  </th>
-  <!-- <th> <%=book.description%></th> -->
+  </td>
+  <!-- <td> <%=book.description%></td> -->
   </tr>
   <% end %>
 </table>

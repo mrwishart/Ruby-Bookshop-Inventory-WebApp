@@ -1,9 +1,16 @@
-<% for wholesaler in @wholesalers %>
+<table style = "width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Discount Offered</th>
+    <th>Contact Number</th>
+  </tr>
 
-<p>Name: <%=wholesaler.name%></p>
-<p>Address: <%=wholesaler.address%></p>
-<p>Contact Number: <%=wholesaler.contact_number%></p>
-<p>Discount: <%=wholesaler.discount_offered%>%</p>
-<hr>
+  <% for wholesaler in @wholesalers %>
+  <tr>
+    <td><a href="/wholesaler/<%=wholesaler.id%>"><%=wholesaler.name%></a></td>
+    <td><%=wholesaler.discount_offered%>%</td>
+    <td><%=wholesaler.contact_number%></td>
+  </tr>
 
-<% end %>
+  <% end %>
+</table>
