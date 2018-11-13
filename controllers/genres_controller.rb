@@ -26,7 +26,7 @@ end
 
 # SHOW
 get '/genres/:id' do
-  @genre = Genre.find(params['id'])
+  @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
     erb(:'404')
   else
@@ -38,7 +38,7 @@ end
 
 get '/genres/:id/edit' do
   params['title'] = "Blank" if params['title'] == ""
-  @genre = Genre.find(params['id'])
+  @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
     erb(:'404')
   else
@@ -57,7 +57,7 @@ end
 # DELETE
 
 post '/genres/:id/delete' do
-  @genre = Genre.find(params['id'])
+  @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
     redirect to '/404'
   else

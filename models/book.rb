@@ -114,14 +114,14 @@ class Book
     return nil if genre_ids.nil?
 
     genre_ids.each { |genre_id|
-      genre = Genre.find(genre_id)
+      genre = Genre.find_by_id(genre_id)
       add_genre(genre)
     }
   end
 
   def add_genre_by_id(genre_id)
     return nil if genre_id.nil?
-    new_genre = Genre.find(genre_id)
+    new_genre = Genre.find_by_id(genre_id)
     add_genre(new_genre)
   end
 
@@ -143,7 +143,7 @@ class Book
 
     return nil if genre_id.nil?
 
-    new_genre = Genre.find(genre_id)
+    new_genre = Genre.find_by_id(genre_id)
 
     delete_genre(new_genre)
   end
