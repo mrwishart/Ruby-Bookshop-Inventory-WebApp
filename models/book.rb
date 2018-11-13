@@ -119,6 +119,13 @@ class Book
     }
   end
 
+  def update_genres(genre_ids)
+
+    BookGenre.clear_books_genres(self)
+    add_genres(genre_ids)
+
+  end
+
   # Author functions
 
   def authors

@@ -74,7 +74,7 @@ post '/books/:id' do
   new_book = Book.new(params)
   new_book.update
   new_book.update_authors(params['author_ids'])
-  new_book.add_genres(params['genre_ids'])
+  new_book.update_genres(params['genre_ids'])
   redirect to '/books/' + new_book.id.to_s
 end
 
