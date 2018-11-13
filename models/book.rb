@@ -132,7 +132,7 @@ class Book
     sql = "SELECT authors.* from authors INNER JOIN bookauthors ON bookauthors.author_id = authors.id WHERE bookauthors.book_id = $1 ORDER BY authors.last_name"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return nil if results.count == 0
+    return [] if results.count == 0
     return results.map {|author| Author.new(author)}
   end
 
@@ -183,11 +183,33 @@ class Book
     return author_array
   end
 
+  def add_author_by_id(author_id)
+    return nil if author_id.nil?
+    new_author = Author.find_by_id(author_id)
+    add_author(new_author)
+  end
+
   def update_authors(author_ids)
 
     BookAuthor.clear_books_authors(self)
     add_authors(author_ids)
 
+  end
+
+  def delete_author(author)
+    # If book already has author, return
+    return nil if authors().nil? && !(authors().include?(author))
+
+    BookAuthor.delete_by_book_and_author(self, author)
+  end
+
+  def delete_author_by_id(author_id)
+
+    return nil if author_id.nil?
+
+    new_author = Author.find_by_id(author_id)
+
+    delete_author(new_author)
   end
 
   # Wholesaler functions

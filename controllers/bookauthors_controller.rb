@@ -19,3 +19,14 @@ get '/bookauthors/:id/edit' do
 end
 
 # UPDATE
+
+post '/bookauthors/:id/edit' do
+  @book = Book.find_by_id(params['id'])
+  if @book.nil?
+    redirect to '/404'
+  else
+    @book.add_author_by_id(params['add_author'])
+    @book.delete_author_by_id(params['delete_author'])
+    redirect to 'bookauthors/'+ @book.id.to_s + '/edit'
+  end
+end

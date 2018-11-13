@@ -25,7 +25,7 @@
       <td>
         <select id="authors" name="author_ids[]" size="3" multiple>
           <% for author in @authors %>
-            <option value="<%=author.id%>" <%="selected" if !@book.authors.nil? && @book.authors.include?(author)%>>
+            <option value="<%=author.id%>" <%="selected" if @book.authors.include?(author)%>>
               <%=author.pretty_name%></option>
           <% end %>
         </select>

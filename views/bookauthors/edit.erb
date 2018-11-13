@@ -1,9 +1,11 @@
-<h2><%=@book.title%></h2>
+<h2><a href="/books/<%=@book.id%>"><%=@book.title%></a></h2>
+<h3>Add/Remove Authors</h3>
 
 <table>
 
-  <form action="/bookauthors/<%=@book.id%>/edit" method="post">
+
     <tr>
+      <form action="/bookauthors/<%=@book.id%>/edit" method="post">
       <td>
         <label for="add-author">Add Author:</label>
       </td>
@@ -17,12 +19,12 @@
       <td>
         <input type ="submit" value="Add Author">
       </td>
+      </form>
     </tr>
 
-  </form>
 
-  <form action="/bookauthors/<%=@book.id%>/edit" method="post">
     <tr>
+      <form action="/bookauthors/<%=@book.id%>/edit" method="post">
       <td>
         <label for="delete-author">Delete Author:</label>
       </td>
@@ -36,8 +38,16 @@
       <td>
         <input type ="submit" value="Delete Author">
       </td>
+      </form>
     </tr>
 
-  </form>
-
 </table>
+
+<hr>
+<h3>Current Authors:</h3>
+
+<ul>
+  <% for author in @book.authors %>
+  <li> <%=author.pretty_name%></li>
+  <% end %>
+</ul>

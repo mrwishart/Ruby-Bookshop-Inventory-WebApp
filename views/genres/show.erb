@@ -21,7 +21,7 @@
       </a>
     </td>
     <td>
-      <% if book.authors.nil? %>
+      <% if book.authors.empty? %>
         Missing: Please enter
       <% else %>
         <% for author in book.authors %>

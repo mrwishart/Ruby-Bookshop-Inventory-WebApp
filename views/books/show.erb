@@ -7,10 +7,10 @@
     <td>Edition:</td><td> <%=@book.edition%></td>
   </tr>
   <tr>
-    <td>Author(s):</td>
+    <td><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a></td>
     <td>
-      <% if @book.authors.nil? %>
-      Missing: Please enter
+      <% if @book.authors.empty? %>
+      Missing: <a href="/bookauthors/<%=@book.id%>/edit">Please enter</a>
       <% else %>
       <% @book.authors.each do |author| %>
       <a href="../authors/<%=author.id%>">
