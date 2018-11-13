@@ -27,7 +27,7 @@
     </td>
     <td>
       <% if book.genres.empty? %>
-        <b>Missing:</b> Please enter
+        <b>Missing:</b> <a href="/bookgenres/<%=book.id%>/edit">Please enter</a>
       <% else %>
         <% for genre in book.genres %>
          <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
