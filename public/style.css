@@ -1,9 +1,9 @@
 html {
   height: 100%;
+  min-width: 600px;
 }
 
 footer {
-    background-color: CornflowerBlue;
     color: floralwhite;
     text-align: center;
     position: sticky;
@@ -12,17 +12,19 @@ footer {
 }
 
 footer p {
-  background-color: CornflowerBlue;
+  background-color: Darkblue;
+  font-family: monospace;
+  font-style: normal;
+  font-size: 14px;
   margin: 0px;
   padding-top: 8px;
   padding-bottom: 8px;
-  flex: 2;
 }
 
 nav {
   background-color: Darkblue;
   margin: 0px;
-  height: 80px;
+  height: 40px;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -30,12 +32,12 @@ nav {
 }
 
 body {
-  top: 80px;
+  top: 40px;
   position: absolute;
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0px;
+  margin: 0px;
   min-height: 100%;
 }
 
@@ -43,6 +45,42 @@ nav li {
   display: inline;
   border-left: 1px solid black;
   border-right: 1px solid black;
+}
+
+.index-table {
+  margin: 8px;
+}
+
+.sub-header-container {
+  height: 35px;
+  display: block;
+}
+
+.sub-header {
+  background-color: #dcb8a2;
+  position: fixed;
+  width: 100%;
+  top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.sub-header a{
+  display: inline-block;
+  margin: 4px 0px 5px 0px;
+  border-radius: 90px;
+  padding: 2px 10px;
+  border: 1px solid black;
+  background-color: slategrey;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 .index-table td {
@@ -60,7 +98,7 @@ nav img {
 nav ul {
   display: flex;
   width: 100%;
-  height: 80px;
+  height: 40px;
   margin: 0px 16px 0px 16px;
   padding: 0px;
   flex-direction: row;
@@ -75,19 +113,22 @@ nav ul {
 } */
 
 nav a{
-  background-color: #0e5bad;
+  /* background-color: #0e5bad; */
     text-decoration: none;
     color: #f6f7ee;
     /* font-weight: bold; */
     font-size: 17px;
-    padding: 15px;
+    padding: 5px 8px 5px 8px;
     font-family: opensans,Arial,sans-serif;
 }
 
 nav a:hover{
   /* text-decoration: underline; */
   color: LightGoldenRodYellow;
-  background-color: #8bbaec;
+  background-color: #0e5bad;
+  /* font-weight: bold; */
+  border-bottom: 1px solid gold;
+  /* background-color: #8bbaec; */
 }
 
 /* nav a:visited {

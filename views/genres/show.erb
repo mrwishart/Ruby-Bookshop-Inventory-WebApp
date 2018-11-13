@@ -1,3 +1,9 @@
+<div class = "sub-header-container">
+  <div class = "sub-header">
+    <a href="/books/new">Add Book</a>
+  </div>
+</div>
+
 <h2><%=@genre.title%></h2>
 <a href="/genres/<%= @genre.id %>/edit"><p>(edit genre)</p></a>
 <form action="/genres/<%=@genre.id%>/delete" method="post">

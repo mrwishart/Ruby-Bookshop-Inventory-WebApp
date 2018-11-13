@@ -1,3 +1,9 @@
+<div class = "sub-header-container">
+  <div class = "sub-header">
+    <a href="/wholesalers/new">Add Wholesaler</a>
+  </div>
+</div>
+
 <h2><%=@wholesaler.name%></h2>
 <a href="/wholesalers/<%= @wholesaler.id %>/edit"><p>(edit)</p></a>
 <form action="/wholesalers/<%=@wholesaler.id%>/delete" method="post">
