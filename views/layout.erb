@@ -3,18 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Wishart's Fun Placeholder</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
+  <nav>
+    <ul>
+      <li><a href="/books">Books</a></li>
+      <li><a href="/authors">Authors</a></li>
+      <li><a href="/genres">Genres</a></li>
+      <li><a href="/wholesalers">Wholesalers</a></li>
+    </ul>
+  </nav>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/books">Books</a></li>
-        <li><a href="/authors">Authors</a></li>
-        <li><a href="/genres">Genres</a></li>
-        <li><a href="/wholesalers">Wholesalers</a></li>
-      </ul>
-    </nav>
-    <br>
-    <hr>
     <%= yield %>
   </body>
 </html>
+<footer>
+  <p><b>Paul Wishart 2018</b> ©</p>
+</footer>

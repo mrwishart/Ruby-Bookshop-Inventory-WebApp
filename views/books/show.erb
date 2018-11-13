@@ -2,7 +2,7 @@
 <a href="/books/<%=@book.id%>/edit">(edit)</a>
 <hr>
 <table>
-
+  <div class = "info-table">
   <tr>
     <td>Edition:</td><td> <%=@book.edition%></td>
   </tr>
@@ -72,7 +72,7 @@
     <td>Description:</td>
     <td><%=@book.description%></td>
   </tr>
-
+  </div>
 </table>
 
 <form action="/books/<%=@book.id%>/delete" method="post">

@@ -1,5 +1,6 @@
 <a href="/books/new">Add New Book</a>
 <hr>
+<div class = "index-table">
 <table style = "width:100%">
   <tr>
     <th>Title</th>
@@ -13,7 +14,6 @@
     <th>Quantity</th>
     <th>Wholesaler</th>
   </tr>
-
   <% for book in @books %>
   <tr>
   <td>
@@ -60,4 +60,6 @@
   <!-- <td> <%=book.description%></td> -->
   </tr>
   <% end %>
+
 </table>
+</div>
