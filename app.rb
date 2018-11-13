@@ -8,6 +8,7 @@ require_relative('./controllers/bookauthors_controller')
 require_relative('./controllers/bookgenres_controller')
 require_relative('./controllers/genres_controller')
 require_relative('./controllers/wholesalers_controller')
+require_relative('./models/CSSHelper')
 
 # Index
 

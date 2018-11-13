@@ -47,12 +47,8 @@ nav li {
   border-right: 1px solid black;
 }
 
-.index-table {
-  margin: 8px;
-}
-
 .sub-header-container {
-  height: 35px;
+  height: 31px;
   display: block;
 }
 
@@ -83,8 +79,39 @@ nav li {
   font-size: 14px;
 }
 
-.index-table td {
+.sub-header a:hover {
+  background-color: #134f8c;
+}
+
+.index-table {
+  margin: 0px 8px 8px;
+}
+
+.index-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.index-table thead {
+  background-color: #8e000047;
+}
+
+.in-stock {
+  background-color: #95c795a1;
+}
+
+.low-stock {
+  background-color: #dacd8ba3;
+}
+
+.out-of-stock {
+  background-color: #e66f6fc9
+}
+
+.index-table td, th {
   text-align: center;
+  border: 1px solid black;
+  padding: 13px 0px;
 }
 
 .info-table td {

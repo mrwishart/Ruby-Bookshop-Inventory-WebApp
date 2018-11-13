@@ -92,7 +92,8 @@ class Book
     WHERE genres.id NOT IN (
     SELECT genre_id
     FROM bookgenres
-    WHERE $1 = bookgenres.book_id)"
+    WHERE $1 = bookgenres.book_id)
+    ORDER BY genres.title"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map {|genre| Genre.new(genre)}
@@ -173,7 +174,8 @@ class Book
     WHERE authors.id NOT IN (
     SELECT author_id
     FROM bookauthors
-    WHERE $1 = bookauthors.book_id)"
+    WHERE $1 = bookauthors.book_id)
+    ORDER BY authors.last_name"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map {|author| Author.new(author)}

@@ -16,21 +16,23 @@
   </div>
 </div>
 <div class = "index-table">
-<table style = "width:100%">
+<table>
+  <thead>
   <tr>
     <th>Title</th>
     <th>Edition</th>
     <th>Author(s)</th>
     <th>Genres(s)</th>
     <th>RRP</th>
-    <th>Discount %</th>
+    <th>Discount</th>
     <th>Value Owed</th>
     <th>Profit</th>
     <th>Quantity</th>
     <th>Wholesaler</th>
   </tr>
+  </thead>
   <% for book in @books %>
-  <tr>
+  <tr class = "<%=CSSHelper.stock_colour(book.quantity)%>">
   <td>
     <a href="books/<%=book.id%>"><%=book.title%>
     </a>
@@ -39,7 +41,7 @@
 
   <td>
   <% if book.authors.empty? %>
-    <b>Missing:</b> <a href="/bookauthors/<%=book.id%>/edit">Please enter</a>
+    <a href="/bookauthors/<%=book.id%>/edit"><%=CSSHelper.no_objects%></a>
   <% else %>
     <% for author in book.authors %>
      <a href="../authors/<%=author.id%>"><%= author.pretty_name%></a><br>
@@ -49,7 +51,7 @@
 
   <td>
   <% if book.genres.empty? %>
-    <b>Missing:</b> <a href="/bookgenres/<%=book.id%>/edit">Please enter</a>
+    <a href="/bookgenres/<%=book.id%>/edit"><%=CSSHelper.no_objects%></a>
   <% else %>
     <% for genre in book.genres %>
      <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
@@ -59,7 +61,7 @@
 
   <!-- <td><%=book.year_published%></td> -->
   <td>£<%=book.print_currency(book.rrp)%></td>
-  <td><%=book.print_currency(book.discount)%></td>
+  <td><%=book.print_currency(book.discount)%>%</td>
   <td>£<%=book.print_currency(book.value_owed)%></td>
   <td>£<%=book.print_currency(book.profit)%></td>
   <td><%=book.quantity%></td>
