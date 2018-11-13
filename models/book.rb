@@ -163,7 +163,7 @@ class Book
 
   def add_authors(author_ids)
 
-    return nil if author_ids.nil?
+    return [] if author_ids.nil?
 
     author_array = []
 
@@ -178,16 +178,8 @@ class Book
 
   def update_authors(author_ids)
 
-    return nil if author_ids.nil?
-
-    author_array = add_authors(author_ids)
-
-    authors().each do |author|
-      if !author_array.include?(author)
-        ba = BookAuthor.new({"book_id" => @id, "author_id" => author.id})
-        ba.delete
-      end
-    end
+    BookAuthor.clear_books_authors(self)
+    add_authors(author_ids)
 
   end
 
