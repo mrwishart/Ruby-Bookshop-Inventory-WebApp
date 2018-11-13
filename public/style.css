@@ -1,11 +1,22 @@
+html {
+  height: 100%;
+}
+
 footer {
-  height: 40px;
-  background-color: CornflowerBlue ;
-  color: floralwhite;
-  text-align: center;
-  margin: auto;
-  font-size: 16px;
-  vertical-align: bottom;
+    background-color: CornflowerBlue;
+    color: floralwhite;
+    text-align: center;
+    position: sticky;
+    bottom: 0px;
+    width: 100%;
+}
+
+footer p {
+  background-color: CornflowerBlue;
+  margin: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  flex: 2;
 }
 
 nav {
@@ -15,12 +26,17 @@ nav {
   position: fixed;
   top: 0px;
   width: 100%;
+  left: 0px;
 }
 
 body {
   top: 80px;
   position: absolute;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  min-height: 100%;
 }
 
 nav li {
@@ -37,15 +53,21 @@ nav li {
   text-align: left;
 }
 
-ul {
+nav img {
+  margin: 5px;
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
   height: 80px;
   margin: 0px 16px 0px 16px;
   padding: 0px;
-  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  overflow-y: auto;
 }
 
 /* a:visited {
@@ -53,12 +75,13 @@ ul {
 } */
 
 nav a{
-  background-color: #528fd0;
-  text-decoration: none;
-  color: #f6f7ee;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 15px;
+  background-color: #0e5bad;
+    text-decoration: none;
+    color: #f6f7ee;
+    /* font-weight: bold; */
+    font-size: 17px;
+    padding: 15px;
+    font-family: opensans,Arial,sans-serif;
 }
 
 nav a:hover{
@@ -71,3 +94,11 @@ nav a:hover{
   color: aqua;
   font-weight: bold;
 } */
+
+.top-nav {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+}
