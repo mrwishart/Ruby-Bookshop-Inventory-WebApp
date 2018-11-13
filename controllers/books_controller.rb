@@ -27,7 +27,10 @@ end
 # CREATE
 
 post '/books' do
+  # If self-published, delete wholesale_id tag to avoid error
   params.delete('wholesale_id') if params['wholesale_id'] == '0'
+  # Avoid user not entering book title and being unable to edit
+  params['title'] = "No Title" if params['title'] == ""
   new_book = Book.new(params)
   new_book.save
   new_book.add_authors(params['author_ids'])
