@@ -1,0 +1,53 @@
+<h2><a href="/books/<%=@book.id%>"><%=@book.title%></a></h2>
+<h3>Add/Remove Genres</h3>
+
+<table>
+
+
+    <tr>
+      <form action="/bookgenres/<%=@book.id%>/edit" method="post">
+      <td>
+        <label for="add-genre">Add Genre:</label>
+      </td>
+      <td>
+        <select id="add-genre" name="add_genre">
+          <% for genre in @add_genres_list %>
+          <option value="<%=genre.id%>"><%=genre.title%></option>
+          <% end %>
+        </select>
+      </td>
+      <td>
+        <input type ="submit" value="Add Genre">
+      </td>
+      </form>
+    </tr>
+
+
+    <tr>
+      <form action="/bookgenres/<%=@book.id%>/edit" method="post">
+      <td>
+        <label for="delete-genre">Delete Genre:</label>
+      </td>
+      <td>
+        <select id="delete-genre" name="delete_genre">
+          <% for genre in @delete_genres_list %>
+          <option value="<%=genre.id%>"><%=genre.title%></option>
+          <% end %>
+        </select>
+      </td>
+      <td>
+        <input type ="submit" value="Delete Genre">
+      </td>
+      </form>
+    </tr>
+
+</table>
+
+<hr>
+<h3>Current Genres:</h3>
+
+<ul>
+  <% for genre in @book.genres %>
+  <li> <%=genre.title%></li>
+  <% end %>
+</ul>

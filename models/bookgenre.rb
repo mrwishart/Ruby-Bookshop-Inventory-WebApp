@@ -35,6 +35,12 @@ attr_reader :id
     result = SqlRunner.run(sql, values)
   end
 
+  def self.delete_by_book_and_genre(book, genre)
+    sql = "DELETE FROM bookgenres WHERE book_id = $1 AND genre_id = $2"
+    values = [book.id, genre.id]
+    result = SqlRunner.run(sql, values)
+  end
+
   # Instance functions
 
   def save

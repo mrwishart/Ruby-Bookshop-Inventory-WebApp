@@ -23,7 +23,7 @@
 
   <td>
   <% if book.authors.empty? %>
-    Missing: Please enter
+    Missing: <a href="/bookauthors/<%=book.id%>/edit">Please enter</a>
   <% else %>
     <% for author in book.authors %>
      <a href="../authors/<%=author.id%>"><%= author.pretty_name%></a><br>

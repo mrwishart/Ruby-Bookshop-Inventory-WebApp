@@ -119,11 +119,33 @@ class Book
     }
   end
 
+  def add_genre_by_id(genre_id)
+    return nil if genre_id.nil?
+    new_genre = Genre.find(genre_id)
+    add_genre(new_genre)
+  end
+
   def update_genres(genre_ids)
 
     BookGenre.clear_books_genres(self)
     add_genres(genre_ids)
 
+  end
+
+  def delete_genre(genre)
+    # If book already has author, return
+    return nil if !(genres().include?(genre))
+
+    BookGenre.delete_by_book_and_genre(self, genre)
+  end
+
+  def delete_genre_by_id(genre_id)
+
+    return nil if genre_id.nil?
+
+    new_genre = Genre.find(genre_id)
+
+    delete_genre(new_genre)
   end
 
   # Author functions

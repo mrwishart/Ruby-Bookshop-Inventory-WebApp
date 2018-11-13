@@ -10,7 +10,7 @@
     <td><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a></td>
     <td>
       <% if @book.authors.empty? %>
-      Missing: <a href="/bookauthors/<%=@book.id%>/edit">Please enter</a>
+      <b>Missing:</b> <a href="/bookauthors/<%=@book.id%>/edit">Please enter</a>
       <% else %>
       <% @book.authors.each do |author| %>
       <a href="../authors/<%=author.id%>">
@@ -22,10 +22,10 @@
     </td>
   </tr>
   <tr>
-    <td>Genre(s):</td>
+    <td><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></td>
     <td>
       <% if @book.genres.empty? %>
-      Missing: Please enter
+      <b>Missing:</b> Please enter
       <% else %>
       <% for genre in @book.genres %>
       <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
