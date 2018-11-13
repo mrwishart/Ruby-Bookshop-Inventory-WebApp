@@ -17,6 +17,7 @@ end
 
 # CREATE
 post '/wholesalers' do
+  params['name'] = "Blank" if params['name'] == ""
   @wholesaler = Wholesaler.new(params)
   @wholesaler.save
   redirect to '/wholesalers'
@@ -36,6 +37,7 @@ end
 #UPDATE
 
 post '/wholesalers/:id' do
+  params['name'] = "Blank" if params['name'] == ""
   @wholesaler = Wholesaler.new(params)
   @wholesaler.update()
   redirect to '/wholesalers/' + @wholesaler.id.to_s
