@@ -29,6 +29,12 @@ attr_reader :id
     return BookAuthor.new(result.first)
   end
 
+  def self.clear_books_authors(book)
+    sql = "DELETE FROM bookauthors WHERE book_id = $1"
+    values = [book.id]
+    result = SqlRunner.run(sql, values)
+  end
+
   # Instance functions
 
   def save

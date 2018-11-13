@@ -165,10 +165,30 @@ class Book
 
     return nil if author_ids.nil?
 
+    author_array = []
+
     author_ids.each { |author_id|
       author = Author.find_by_id(author_id)
       add_author(author)
+      author_array << author
     }
+
+    return author_array
+  end
+
+  def update_authors(author_ids)
+
+    return nil if author_ids.nil?
+
+    author_array = add_authors(author_ids)
+
+    authors().each do |author|
+      if !author_array.include?(author)
+        ba = BookAuthor.new({"book_id" => @id, "author_id" => author.id})
+        ba.delete
+      end
+    end
+
   end
 
   # Wholesaler functions

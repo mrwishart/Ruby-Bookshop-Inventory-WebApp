@@ -64,6 +64,20 @@ get '/books/:id/edit' do
   end
 end
 
+# UPDATE
+
+post '/books/:id' do
+  # If self-published, delete wholesale_id tag to avoid error
+  params.delete('wholesale_id') if params['wholesale_id'] == '0'
+  # Avoid user not entering book title and being unable to edit
+  params['title'] = "No Title" if params['title'] == ""
+  new_book = Book.new(params)
+  new_book.update
+  new_book.update_authors(params['author_ids'])
+  new_book.add_genres(params['genre_ids'])
+  redirect to '/books/' + new_book.id.to_s
+end
+
 # DELETE
 
 post '/books/:id/delete' do
