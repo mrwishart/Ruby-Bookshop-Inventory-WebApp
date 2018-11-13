@@ -43,7 +43,25 @@ end
 
 get '/books/:id' do
   @book = Book.find_by_id(params['id'])
-  erb (:"books/show")
+  if @book.nil?
+    redirect to '/404'
+  else
+   erb (:"books/show")
+  end
+end
+
+# EDIT
+
+get '/books/:id/edit' do
+  @book = Book.find_by_id(params['id'])
+  if @book.nil?
+    redirect to '/404'
+  else
+    @authors = Author.all()
+    @genres = Genre.all()
+    @wholesalers = Wholesaler.all()
+    erb (:"books/edit")
+  end
 end
 
 # DELETE

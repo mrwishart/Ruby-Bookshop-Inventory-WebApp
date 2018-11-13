@@ -129,14 +129,14 @@ class Book
     return results.map {|author| Author.new(author)}
   end
 
-  def authors_names
-    book_authors = authors()
-    return "Missing: Please enter" if book_authors.nil?
-
-    author_name_array = book_authors.map {|author| author.pretty_name}
-
-    return author_name_array.join(', ')
-  end
+  # def authors_names
+  #   book_authors = authors()
+  #   return "What: Please enter" if book_authors.nil?
+  #
+  #   author_name_array = book_authors.map {|author| author.pretty_name}
+  #
+  #   return author_name_array.join(', ')
+  # end
 
   def other_authors
     sql = "SELECT authors.*
@@ -175,7 +175,7 @@ class Book
 
   def wholesaler
     # If book is self-published, return nil
-    return nil if @wholesale_id.nil?
+    return nil if !is_published?
 
     sql = "SELECT wholesalers.*
     FROM wholesalers
