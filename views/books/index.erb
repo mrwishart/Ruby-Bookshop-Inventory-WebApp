@@ -32,7 +32,7 @@
   </td>
 
   <td>
-  <% if book.genres.nil? %>
+  <% if book.genres.empty? %>
     Missing: Please enter
   <% else %>
     <% for genre in book.genres %>

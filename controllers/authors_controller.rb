@@ -20,7 +20,12 @@ end
 # CREATE
 
 post '/authors' do
-  Author.new(params).save
+  default_name = {"first_name" => "Guy", "last_name" => "Incognito"}
+  if params['first_name'].empty? && params['last_name'].empty?
+    Author.new(default_name).save
+  else
+    Author.new(params).save
+  end
   redirect to '/authors'
 end
 
@@ -49,6 +54,8 @@ end
 # UPDATE
 
 post '/authors/:id' do
+  default_name = {"first_name" => "Guy", "last_name" => "Incognito"}
+  params = default_name if params['first_name'] == "" && params['last_name'] == ""
   @author = Author.new(params)
   @author.update
   redirect to '/authors/' + @author.id.to_s

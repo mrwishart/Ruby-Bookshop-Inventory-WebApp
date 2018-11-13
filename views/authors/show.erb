@@ -4,6 +4,10 @@
   <input type="submit" value="DELETE AUTHOR!">
 </form>
 
+<% if @author.books.empty? %>
+<p>No books currently in-store
+  <% else %>
+
 <p>Books currently in-store:</p>
 
 <table>
@@ -22,7 +26,7 @@
       </a>
     </td>
     <td>
-      <% if book.genres.nil? %>
+      <% if book.genres.empty? %>
         Missing: Please enter
       <% else %>
         <% for genre in book.genres %>
@@ -38,3 +42,5 @@
 <% end %>
 
 </table>
+
+<% end %>

@@ -19,6 +19,11 @@
   </tr>
 </table>
 <hr>
+
+<% if @wholesaler.books.empty? %>
+<p>No books currently in-store</p>
+  <% else %>
+
 <p>Books currently on sale:</p><br>
 
 <table>
@@ -44,3 +49,5 @@
   <% end %>
 
 </table>
+
+<% end %>

@@ -3,6 +3,11 @@
 <form action="/genres/<%=@genre.id%>/delete" method="post">
   <input type="submit" value="DELETE GENRE!">
 </form>
+
+<% if @genre.books.empty? %>
+<p>No books currently in-store</p>
+  <% else %>
+
 <p>Books currently in-store:</p>
 
 <table>
@@ -37,3 +42,5 @@
 <% end %>
 
 </table>
+
+<% end %>

@@ -19,6 +19,7 @@ end
 # CREATE
 
 post '/genres' do
+  params['title'] = "Blank" if params['title'] == ""
   Genre.new(params).save
   redirect to '/genres'
 end
@@ -36,6 +37,7 @@ end
 # EDIT
 
 get '/genres/:id/edit' do
+  params['title'] = "Blank" if params['title'] == ""
   @genre = Genre.find(params['id'])
   if @genre.nil?
     erb(:'404')

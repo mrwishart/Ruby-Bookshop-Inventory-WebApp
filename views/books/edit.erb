@@ -39,7 +39,7 @@
       <td>
         <select id="genres" name="genre_ids[]" size="3" multiple>
           <% for genre in @genres %>
-            <option value="<%=genre.id%>" <%="selected" if !@book.genres.nil? && @book.genres.include?(genre)%>>
+            <option value="<%=genre.id%>" <%="selected" if !@book.genres.empty? && @book.genres.include?(genre)%>>
               <%=genre.title%>
             </option>
           <% end %>
