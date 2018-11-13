@@ -1,0 +1,43 @@
+<h2><%=@book.title%></h2>
+
+<table>
+
+  <form action="/bookauthors/<%=@book.id%>/edit" method="post">
+    <tr>
+      <td>
+        <label for="add-author">Add Author:</label>
+      </td>
+      <td>
+        <select id="add-author" name="add_author">
+          <% for author in @add_authors_list %>
+          <option value="<%=author.id%>"><%=author.pretty_name%></option>
+          <% end %>
+        </select>
+      </td>
+      <td>
+        <input type ="submit" value="Add Author">
+      </td>
+    </tr>
+
+  </form>
+
+  <form action="/bookauthors/<%=@book.id%>/edit" method="post">
+    <tr>
+      <td>
+        <label for="delete-author">Delete Author:</label>
+      </td>
+      <td>
+        <select id="delete-author" name="delete_author">
+          <% for author in @delete_authors_list %>
+          <option value="<%=author.id%>"><%=author.pretty_name%></option>
+          <% end %>
+        </select>
+      </td>
+      <td>
+        <input type ="submit" value="Delete Author">
+      </td>
+    </tr>
+
+  </form>
+
+</table>
