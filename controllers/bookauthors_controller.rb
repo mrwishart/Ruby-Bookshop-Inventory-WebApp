@@ -10,7 +10,7 @@ require_relative('../models/author')
 get '/bookauthors/:id/edit' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @add_authors_list = @book.other_authors
     @delete_authors_list = @book.authors
@@ -23,7 +23,7 @@ end
 post '/bookauthors/:id/edit' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @book.add_author_by_id(params['add_author'])
     @book.delete_author_by_id(params['delete_author'])

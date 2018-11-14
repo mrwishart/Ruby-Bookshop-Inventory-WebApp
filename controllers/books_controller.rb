@@ -63,7 +63,7 @@ end
 get '/books/:id' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
    erb (:"books/show")
   end
@@ -74,7 +74,7 @@ end
 get '/books/:id/edit' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @authors = Author.all()
     @genres = Genre.all()
@@ -102,7 +102,7 @@ end
 post '/books/:id/delete' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @book.delete
     redirect to '/books'

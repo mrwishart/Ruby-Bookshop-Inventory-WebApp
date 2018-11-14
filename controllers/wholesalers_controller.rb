@@ -28,7 +28,7 @@ end
 get '/wholesalers/:id/edit' do
   @wholesaler = Wholesaler.find_by_id(params['id'])
   if @wholesaler.nil?
-    erb(:'404')
+    erb(:'not_found')
   else
     erb(:"wholesalers/edit")
   end
@@ -54,7 +54,7 @@ end
 post '/wholesalers/:id/delete' do
   @wholesaler = Wholesaler.find_by_id(params['id'])
   if @wholesaler.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @wholesaler.delete
     redirect to '/wholesalers'

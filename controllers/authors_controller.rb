@@ -34,7 +34,7 @@ end
 get '/authors/:id' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
-    erb(:'404')
+    erb(:'not_found')
   else
     erb(:'authors/show')
   end
@@ -45,7 +45,7 @@ end
 get '/authors/:id/edit' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
-    erb(:'404')
+    erb(:'not_found')
   else
     erb(:'authors/edit')
   end
@@ -70,7 +70,7 @@ end
 post '/authors/:id/delete' do
   @author = Author.find_by_id(params['id'])
   if @author.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @author.delete
     redirect to '/authors'

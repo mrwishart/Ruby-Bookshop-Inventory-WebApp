@@ -28,7 +28,7 @@ end
 get '/genres/:id' do
   @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
-    erb(:'404')
+    erb(:'not_found')
   else
   erb(:"genres/show")
   end
@@ -39,7 +39,7 @@ end
 get '/genres/:id/edit' do
   @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
-    erb(:'404')
+    erb(:'not_found')
   else
     erb(:'genres/edit')
   end
@@ -59,7 +59,7 @@ end
 post '/genres/:id/delete' do
   @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @genre.delete
     redirect to '/genres'

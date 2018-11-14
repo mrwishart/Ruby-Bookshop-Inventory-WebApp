@@ -5,17 +5,18 @@
 </div>
 
 <div class = "info-table">
-<table>
-  <tr>
-    <th>List Of Genres</th>
-  </tr>
-<% for genre in @genres %>
+  <table>
+    <tr>
+      <th>List Of Genres</th>
+    </tr>
 
-<tr>
-<td><a href="genres/<%=genre.id%>"><%=genre.title%></a>
-</td>
-</tr>
+    <% for genre in @genres %>
 
-<% end %>
-</table>
+    <tr>
+      <td><a href="genres/<%=genre.id%>"><%=genre.title%></a>
+      </td>
+    </tr>
+
+    <% end %>
+  </table>
 </div>

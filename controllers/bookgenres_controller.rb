@@ -23,7 +23,7 @@ end
 post '/bookgenres/:id/edit' do
   @book = Book.find_by_id(params['id'])
   if @book.nil?
-    redirect to '/404'
+    redirect to '/not_found'
   else
     @book.add_genre_by_id(params['add_genre'])
     @book.delete_genre_by_id(params['delete_genre'])

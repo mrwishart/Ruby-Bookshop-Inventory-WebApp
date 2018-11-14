@@ -1,23 +1,23 @@
 <form action="/genres/<%=@genre.id%>" method="post">
 
-<div class = "sub-header-container">
-  <div class = "sub-header">
-    <div class="button">
-      <input type ="submit" value="Edit Genre">
+  <div class = "sub-header-container">
+    <div class = "sub-header">
+      <div class="button">
+        <input type ="submit" value="Edit Genre">
+      </div>
     </div>
   </div>
-</div>
-<div class="info-table">
+  <div class="info-table">
 
 
-<table>
-  <tr>
-    <td>
-      <h6><label for="title">Title:</label></h6>
-      </td>
-      <td><input id="title" type="text" name="title" value="<%=@genre.title%>"></td>
+    <table>
+      <tr>
+        <td>
+          <h6><label for="title">Title:</label></h6>
+        </td>
+        <td><input id="title" type="text" name="title" value="<%=@genre.title%>"></td>
       </tr>
 
-</table>
-</div>
+    </table>
+  </div>
 </form>

@@ -1,27 +1,24 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
+
     <a href="/genres/<%= @genre.id %>/edit">Edit Title</a>
+
     <h4><%=@genre.title%> books</h4>
+
     <div class = "button">
     <form action="/genres/<%=@genre.id%>/delete" method="post">
       <input type="submit" value="DELETE GENRE!">
     </form>
     </div>
+
   </div>
 </div>
-<!--
-<form action="/genres/<%=@genre.id%>/delete" method="post">
-  <input type="submit" value="DELETE GENRE!">
-</form>
 
-<% if @genre.books.empty? %>
-<p>No books currently in-store</p>
-  <% else %>
+<% if !@genre.books.empty? %>
 
-<p>Books currently in-store:</p>
--->
 <div class = "info-table">
 <table>
+
   <tr>
     <th>Title</th>
     <th>Author(s)</th>
@@ -29,6 +26,7 @@
     <th>Year Published</th>
     <th>Quantity</th>
   </tr>
+
 <% for book in @genre.books %>
   <tr>
     <td>
@@ -36,6 +34,7 @@
       <%=book.title%>
       </a>
     </td>
+
     <td>
       <% if book.authors.empty? %>
         <a href="/bookauthors/<%=book.id%>/edit"><%=CSSHelper.no_objects%></a>
@@ -45,9 +44,11 @@
         <% end %>
       <% end %>
     </td>
+
     <td><%=book.edition%></td>
     <td><%=book.year_published%></td>
     <td><%=book.quantity%></td>
+    
   </tr>
 
 <% end %>

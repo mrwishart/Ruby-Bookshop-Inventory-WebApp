@@ -8,47 +8,47 @@
 
 <div class="info-table">
 
-<table>
+  <table>
 
 
     <tr>
       <form action="/bookgenres/<%=@book.id%>/edit" method="post">
-      <td>
-        <h6><label for="add-genre">Add Genre:</label></h6>
-      </td>
-      <td>
-        <select id="add-genre" name="add_genre">
-          <% for genre in @add_genres_list %>
-          <option value="<%=genre.id%>"><%=genre.title%></option>
-          <% end %>
-        </select>
-      </td>
-      <td>
-        <input type ="submit" value="Add Genre">
-      </td>
+        <td>
+          <h6><label for="add-genre">Add Genre:</label></h6>
+        </td>
+        <td>
+          <select id="add-genre" name="add_genre">
+            <% for genre in @add_genres_list %>
+            <option value="<%=genre.id%>"><%=genre.title%></option>
+            <% end %>
+          </select>
+        </td>
+        <td>
+          <input type ="submit" value="Add Genre">
+        </td>
       </form>
     </tr>
 
 
     <tr>
       <form action="/bookgenres/<%=@book.id%>/edit" method="post">
-      <td>
-        <h6><label for="delete-genre">Delete Genre:</label></h6>
-      </td>
-      <td>
-        <select id="delete-genre" name="delete_genre">
-          <% for genre in @delete_genres_list %>
-          <option value="<%=genre.id%>"><%=genre.title%></option>
-          <% end %>
-        </select>
-      </td>
-      <td>
-        <input type ="submit" value="Delete Genre">
-      </td>
+        <td>
+          <h6><label for="delete-genre">Delete Genre:</label></h6>
+        </td>
+        <td>
+          <select id="delete-genre" name="delete_genre">
+            <% for genre in @delete_genres_list %>
+            <option value="<%=genre.id%>"><%=genre.title%></option>
+            <% end %>
+          </select>
+        </td>
+        <td>
+          <input type ="submit" value="Delete Genre">
+        </td>
       </form>
     </tr>
 
-</table>
+  </table>
 
 </div>
 
@@ -56,17 +56,17 @@
 <h3>Current Genres:</h3>
 
 <div class="info-table">
-<table>
+  <table>
 
 
-  <% for genre in @book.genres %>
-  <tr>
-    <td>
-      <a href="genres/<%=genre.id%>"><%=genre.title%></a>
-    </td>
-  </tr>
-  <% end %>
+    <% for genre in @book.genres %>
+    <tr>
+      <td>
+        <a href="genres/<%=genre.id%>"><%=genre.title%></a>
+      </td>
+    </tr>
+    <% end %>
 
 
-</table>
+  </table>
 </div>

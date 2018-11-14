@@ -94,7 +94,8 @@ class Book
     return [] if results.count == 0
     return results.map {|genre| Genre.new(genre)}
   end
-  #
+
+
   # def genre_types
   #   book_genres = genres()
   #   return "Missing: Please enter" if book_genres.empty?
@@ -138,6 +139,7 @@ class Book
       genre = Genre.find_by_id(genre_id)
       add_genre(genre)
     }
+
   end
 
   def add_genre_by_id(genre_id)
@@ -154,10 +156,11 @@ class Book
   end
 
   def delete_genre(genre)
-    # If book already has author, return
+    # If book already has genre, return
     return nil if !(genres().include?(genre))
 
     BookGenre.delete_by_book_and_genre(self, genre)
+
   end
 
   def delete_genre_by_id(genre_id)
@@ -189,7 +192,7 @@ class Book
 
     author_name_array = book_authors.map {|author| author.pretty_name}
 
-    return author_name_array.join(' ').downcase 
+    return author_name_array.join(' ').downcase
   end
 
   def other_authors
@@ -272,14 +275,17 @@ class Book
     values = [@wholesale_id]
     result = SqlRunner.run(sql, values)
     return Wholesaler.new(result[0])
+
   end
 
   def wholesaler_name
+
     book_wholesale = wholesaler()
 
     return "Self-Published" if book_wholesale.nil?
 
     return book_wholesale.name
+    
   end
 
   def discount

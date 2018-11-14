@@ -163,7 +163,7 @@ font-weight: 600;
 }
 
 .info-table a, .index-table a {
-  color: black;
+  color: #002b92;
   text-decoration: none;
   padding: 5px;
 }
@@ -245,4 +245,11 @@ nav a:hover{
 h3 {
   text-align: center;
   font-family: "Verdana"
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }

@@ -8,49 +8,49 @@
 
 <div class="info-table">
 
-<table>
+  <table>
 
 
     <tr>
       <form action="/bookauthors/<%=@book.id%>/edit" method="post">
-      <td>
-        <h6><label for="add-author">Add Author:</label></h6>
-      </td>
-      <td>
-        <select id="add-author" name="add_author">
-          <% for author in @add_authors_list %>
-          <option value="<%=author.id%>"><%=author.pretty_name%></option>
-          <% end %>
-        </select>
-      </td>
-      <td>
-        <input type ="submit" value="Add Author">
-      </td>
+        <td>
+          <h6><label for="add-author">Add Author:</label></h6>
+        </td>
+        <td>
+          <select id="add-author" name="add_author">
+            <% for author in @add_authors_list %>
+            <option value="<%=author.id%>"><%=author.pretty_name%></option>
+            <% end %>
+          </select>
+        </td>
+        <td>
+          <input type ="submit" value="Add Author">
+        </td>
       </form>
     </tr>
 
 
     <tr>
       <form action="/bookauthors/<%=@book.id%>/edit" method="post">
-      <td>
-        <h6>
-        <label for="delete-author">Delete Author:</label>
-        </h6>
-      </td>
-      <td>
-        <select id="delete-author" name="delete_author">
-          <% for author in @delete_authors_list %>
-          <option value="<%=author.id%>"><%=author.pretty_name%></option>
-          <% end %>
-        </select>
-      </td>
-      <td>
-        <input type ="submit" value="Delete Author">
-      </td>
+        <td>
+          <h6>
+            <label for="delete-author">Delete Author:</label>
+          </h6>
+        </td>
+        <td>
+          <select id="delete-author" name="delete_author">
+            <% for author in @delete_authors_list %>
+            <option value="<%=author.id%>"><%=author.pretty_name%></option>
+            <% end %>
+          </select>
+        </td>
+        <td>
+          <input type ="submit" value="Delete Author">
+        </td>
       </form>
     </tr>
 
-</table>
+  </table>
 
 </div>
 
@@ -59,15 +59,15 @@
 <h3>Current Authors:</h3>
 
 <div class="info-table">
-<table>
+  <table>
 
 
 
-  <% for author in @book.authors %>
-  <tr>
-  <td> <a href="authors/<%=author.id%>"><%=author.pretty_name%></a></td>
-  </tr>
-  <% end %>
+    <% for author in @book.authors %>
+    <tr>
+      <td> <a href="authors/<%=author.id%>"><%=author.pretty_name%></a></td>
+    </tr>
+    <% end %>
 
-</table>
+  </table>
 </div>

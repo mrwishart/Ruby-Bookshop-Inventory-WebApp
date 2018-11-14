@@ -3,83 +3,95 @@
     <a href="/books/<%=@book.id%>/edit">Edit Book</a>
     <h4><%=@book.title%></h4>
     <div class = "button">
-    <form action="/books/<%=@book.id%>/delete" method="post">
-      <input type="submit" value="DELETE BOOK!">
-    </form>
+      <form action="/books/<%=@book.id%>/delete" method="post">
+        <input type="submit" value="DELETE BOOK!">
+      </form>
     </div>
   </div>
 </div>
 
 <div class = "info-table">
-<table>
-  <tr>
-    <td><h6>Edition:</h6></td><td> <%=@book.edition%></td>
-  </tr>
-  <tr>
-    <td><h6><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a><h6></td>
-    <td>
-      <% if @book.authors.empty? %>
-      <a href="/bookauthors/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
-      <% else %>
-      <% @book.authors.each do |author| %>
-      <a href="../authors/<%=author.id%>">
-        <%=author.pretty_name%>
-        <br>
-      </a>
-      <% end %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><h6><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></h6></td>
-    <td>
-      <% if @book.genres.empty? %>
-      <a href="/bookgenres/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
-      <% else %>
-      <% for genre in @book.genres %>
-      <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
-      <% end %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><h6>Year Published:</h6></td> <td><%=@book.year_published%></td>
-  </tr>
-  <tr>
-    <td><h6>RRP:</h6></td>
-    <td> £<%=@book.rrp%></td>
-  </tr>
-  <tr>
-    <td><h6>Discount:</h6></td>
-    <td><%=@book.discount%>%</td>
-  </tr>
-  <tr>
-    <td><h6>Value:</h6></td>
-    <td>£<%=@book.value_owed%></td>
-  </tr>
-  <tr>
-    <td><h6>Profit:</h6></td>
-    <td>£<%=@book.profit%></td>
-  </tr>
-  <tr>
-    <td><h6>Quantity:</h6></td>
-    <td><%=@book.quantity%></td>
-  </tr>
-  <tr>
-    <td><h6>Wholesaler:</h6></td>
-    <td>
-      <% if !@book.wholesaler.nil? %>
-      <a href="../wholesalers/<%=@book.wholesale_id%>">
-      <% end %>
-        <%=@book.wholesaler_name%>
-      <% if !@book.wholesaler.nil? %>
-        </a>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><h6>Description:</h6></td>
-    <td><%=@book.description%></td>
-  </tr>
-</table>
-</div>
+  <table>
+
+    <tr>
+      <td><h6>Edition:</h6></td><td> <%=@book.edition%></td>
+    </tr>
+
+    <tr>
+      <td><h6><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a><h6></td>
+        <td>
+          <% if @book.authors.empty? %>
+          <a href="/bookauthors/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
+          <% else %>
+          <% @book.authors.each do |author| %>
+          <a href="../authors/<%=author.id%>">
+            <%=author.pretty_name%>
+            <br>
+          </a>
+          <% end %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><h6><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></h6></td>
+        <td>
+          <% if @book.genres.empty? %>
+          <a href="/bookgenres/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
+          <% else %>
+          <% for genre in @book.genres %>
+          <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>
+          <% end %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><h6>Year Published:</h6></td> <td><%=@book.year_published%></td>
+      </tr>
+
+      <tr>
+        <td><h6>RRP:</h6></td>
+        <td> £<%=@book.rrp%></td>
+      </tr>
+
+      <tr>
+        <td><h6>Discount:</h6></td>
+        <td><%=@book.discount%>%</td>
+      </tr>
+
+      <tr>
+        <td><h6>Value:</h6></td>
+        <td>£<%=@book.value_owed%></td>
+      </tr>
+
+      <tr>
+        <td><h6>Profit:</h6></td>
+        <td>£<%=@book.profit%></td>
+      </tr>
+
+      <tr>
+        <td><h6>Quantity:</h6></td>
+        <td><%=@book.quantity%></td>
+      </tr>
+
+      <tr>
+        <td><h6>Wholesaler:</h6></td>
+        <td>
+          <% if !@book.wholesaler.nil? %>
+          <a href="../wholesalers/<%=@book.wholesale_id%>">
+            <% end %>
+            <%=@book.wholesaler_name%>
+            <% if !@book.wholesaler.nil? %>
+          </a>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><h6>Description:</h6></td>
+        <td><%=@book.description%></td>
+      </tr>
+
+    </table>
+  </div>
