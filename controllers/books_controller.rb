@@ -26,7 +26,7 @@ end
 
 # CREATE
 
-post '/books' do
+post '/books/create' do
   # If self-published, delete wholesale_id tag to avoid error
   params.delete('wholesale_id') if params['wholesale_id'] == '0'
   # Avoid user not entering book title and being unable to edit
@@ -36,6 +36,13 @@ post '/books' do
   new_book.add_authors(params['author_ids'])
   new_book.add_genres(params['genre_ids'])
   redirect to '/books'
+end
+
+# SEARCH
+
+post '/books' do
+  @books = Book.find_by_string(params['search_title'])
+  erb(:"books/index")
 end
 
 

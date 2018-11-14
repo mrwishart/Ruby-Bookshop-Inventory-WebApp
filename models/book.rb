@@ -44,6 +44,15 @@ class Book
     return Book.new(result.first)
   end
 
+  def self.find_by_string(input_string)
+    sql_string = '%' + input_string.downcase + '%'
+    sql = "SELECT * FROM books WHERE books.title LIKE $1 ORDER BY title"
+    values = [sql_string]
+    results = SqlRunner.run(sql, values)
+    return [] if results.count == 0
+    return results.map {|book| Book.new(book)}
+  end
+
   # Instance functions
 
   def save
@@ -152,7 +161,11 @@ class Book
   # Author functions
 
   def authors
-    sql = "SELECT authors.* from authors INNER JOIN bookauthors ON bookauthors.author_id = authors.id WHERE bookauthors.book_id = $1 ORDER BY authors.last_name"
+    sql = "SELECT authors.* from authors
+    INNER JOIN bookauthors
+    ON bookauthors.author_id = authors.id
+    WHERE bookauthors.book_id = $1
+    ORDER BY authors.last_name"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return [] if results.count == 0
