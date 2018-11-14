@@ -88,7 +88,11 @@ class Book
   # Genre methods
 
   def genres
-    sql = "SELECT genres.* from genres INNER JOIN bookgenres ON bookgenres.genre_id = genres.id WHERE bookgenres.book_id = $1 ORDER BY genres.title"
+    sql = "SELECT genres.* from genres
+    INNER JOIN bookgenres
+    ON bookgenres.genre_id = genres.id
+    WHERE bookgenres.book_id = $1
+    ORDER BY genres.title"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return [] if results.count == 0
@@ -285,7 +289,7 @@ class Book
     return "Self-Published" if book_wholesale.nil?
 
     return book_wholesale.name
-    
+
   end
 
   def discount
