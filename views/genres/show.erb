@@ -1,11 +1,15 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/books/new">Add Book</a>
+    <a href="/genres/<%= @genre.id %>/edit">Edit Title</a>
+    <h4><%=@genre.title%> books</h4>
+    <div class = "button">
+    <form action="/genres/<%=@genre.id%>/delete" method="post">
+      <input type="submit" value="DELETE GENRE!">
+    </form>
+    </div>
   </div>
 </div>
-
-<h2><%=@genre.title%></h2>
-<a href="/genres/<%= @genre.id %>/edit"><p>(edit genre)</p></a>
+<!--
 <form action="/genres/<%=@genre.id%>/delete" method="post">
   <input type="submit" value="DELETE GENRE!">
 </form>
@@ -15,7 +19,8 @@
   <% else %>
 
 <p>Books currently in-store:</p>
-
+-->
+<div class = "info-table">
 <table>
   <tr>
     <th>Title</th>
@@ -48,5 +53,5 @@
 <% end %>
 
 </table>
-
+</div>
 <% end %>

@@ -4,11 +4,18 @@
   </div>
 </div>
 
-<hr>
-<ul>
+<div class = "info-table">
+<table>
+  <tr>
+    <th>List Of Genres</th>
+  </tr>
 <% for genre in @genres %>
 
-<li><a href="genres/<%=genre.id%>"><%=genre.title%></a></li>
+<tr>
+<td><a href="genres/<%=genre.id%>"><%=genre.title%></a>
+</td>
+</tr>
 
 <% end %>
-</ul>
+</table>
+</div>

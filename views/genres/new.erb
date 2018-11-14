@@ -1,14 +1,23 @@
+<form action="/genres" method="post">
 <div class = "sub-header-container">
   <div class = "sub-header">
-    Add Book
+    <div class="button">
+      <input type ="submit" value="Create Genre">
+    </div>
   </div>
 </div>
 
-<form action="/genres" method="post">
+<div class="info-table">
 
-  <label for="title">Title:</label>
-  <input id="title" type="text" name="title">
-  <br>
-  <input type ="submit" value="Create Genre">
-
+<table>
+  <tr>
+    <td>
+      <h6><label for="title">Title:</label></h6>
+    </td>
+    <td>
+      <input id="title" type="text" name="title">
+    </td>
+  </tr>
+</table>
+</div>
 </form>

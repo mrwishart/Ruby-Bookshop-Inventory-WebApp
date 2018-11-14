@@ -19,7 +19,7 @@ end
 # CREATE
 
 post '/genres' do
-  params['title'] = "Blank" if params['title'] == ""
+  params['title'] = "Blank" if params['title'].empty?
   Genre.new(params).save
   redirect to '/genres'
 end
@@ -37,7 +37,6 @@ end
 # EDIT
 
 get '/genres/:id/edit' do
-  params['title'] = "Blank" if params['title'] == ""
   @genre = Genre.find_by_id(params['id'])
   if @genre.nil?
     erb(:'404')
@@ -49,6 +48,7 @@ end
 # UPDATE
 
 post '/genres/:id' do
+  params['title'] = "Blank" if params['title'].empty?
   @genre = Genre.new(params)
   @genre.update
   redirect to '/genres/' + @genre.id.to_s
