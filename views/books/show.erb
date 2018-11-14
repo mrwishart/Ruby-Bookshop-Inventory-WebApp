@@ -19,7 +19,7 @@
     <td><h6><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a><h6></td>
     <td>
       <% if @book.authors.empty? %>
-      <b>Missing:</b> <a href="/bookauthors/<%=@book.id%>/edit">Please enter</a>
+      <a href="/bookauthors/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
       <% else %>
       <% @book.authors.each do |author| %>
       <a href="../authors/<%=author.id%>">
@@ -34,7 +34,7 @@
     <td><h6><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></h6></td>
     <td>
       <% if @book.genres.empty? %>
-      <b>Missing:</b> <a href="/bookgenres/<%=@book.id%>/edit">Please enter</a>
+      <a href="/bookgenres/<%=@book.id%>/edit"><%=CSSHelper.no_objects%></a>
       <% else %>
       <% for genre in @book.genres %>
       <a href="../genres/<%=genre.id%>"><%= genre.title%></a><br>

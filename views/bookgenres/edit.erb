@@ -1,11 +1,12 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/wholesalers/new">Add Wholesaler</a>
+    <h4><%=@book.title%></h4>
   </div>
 </div>
 
-<h2><a href="/books/<%=@book.id%>"><%=@book.title%></a></h2>
 <h3>Add/Remove Genres</h3>
+
+<div class="info-table">
 
 <table>
 
@@ -13,7 +14,7 @@
     <tr>
       <form action="/bookgenres/<%=@book.id%>/edit" method="post">
       <td>
-        <label for="add-genre">Add Genre:</label>
+        <h6><label for="add-genre">Add Genre:</label></h6>
       </td>
       <td>
         <select id="add-genre" name="add_genre">
@@ -32,7 +33,7 @@
     <tr>
       <form action="/bookgenres/<%=@book.id%>/edit" method="post">
       <td>
-        <label for="delete-genre">Delete Genre:</label>
+        <h6><label for="delete-genre">Delete Genre:</label></h6>
       </td>
       <td>
         <select id="delete-genre" name="delete_genre">
@@ -49,11 +50,23 @@
 
 </table>
 
+</div>
+
 <hr>
 <h3>Current Genres:</h3>
 
-<ul>
+<div class="info-table">
+<table>
+
+
   <% for genre in @book.genres %>
-  <li> <%=genre.title%></li>
+  <tr>
+    <td>
+      <a href="genres/<%=genre.id%>"><%=genre.title%></a>
+    </td>
+  </tr>
   <% end %>
-</ul>
+
+
+</table>
+</div>

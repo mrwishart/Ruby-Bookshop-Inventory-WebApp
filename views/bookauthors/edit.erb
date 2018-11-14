@@ -1,11 +1,12 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/wholesalers/new">Add Wholesaler</a>
+    <h4><%=@book.title%></h4>
   </div>
 </div>
 
-<h2><a href="/books/<%=@book.id%>"><%=@book.title%></a></h2>
 <h3>Add/Remove Authors</h3>
+
+<div class="info-table">
 
 <table>
 
@@ -13,7 +14,7 @@
     <tr>
       <form action="/bookauthors/<%=@book.id%>/edit" method="post">
       <td>
-        <label for="add-author">Add Author:</label>
+        <h6><label for="add-author">Add Author:</label></h6>
       </td>
       <td>
         <select id="add-author" name="add_author">
@@ -32,7 +33,9 @@
     <tr>
       <form action="/bookauthors/<%=@book.id%>/edit" method="post">
       <td>
+        <h6>
         <label for="delete-author">Delete Author:</label>
+        </h6>
       </td>
       <td>
         <select id="delete-author" name="delete_author">
@@ -49,11 +52,22 @@
 
 </table>
 
+</div>
+
 <hr>
+
 <h3>Current Authors:</h3>
 
-<ul>
+<div class="info-table">
+<table>
+
+
+
   <% for author in @book.authors %>
-  <li> <%=author.pretty_name%></li>
+  <tr>
+  <td> <a href="authors/<%=author.id%>"><%=author.pretty_name%></a></td>
+  </tr>
   <% end %>
-</ul>
+
+</table>
+</div>

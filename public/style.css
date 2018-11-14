@@ -106,7 +106,18 @@ nav li {
 .index-table td, th {
   text-align: center;
   border: 1px solid black;
-  padding: 13px 0px;
+  padding: 10px 3px;
+}
+
+.index-table td, .info-table td {
+  font-family: "Verdana";
+  line-height: 1.7;
+font-size: 13px;
+font-weight: 600;
+}
+
+.index-table th, .info-table th {
+  font-family: "Verdana";
 }
 
 
@@ -148,7 +159,20 @@ nav li {
 .info-table h6 {
   font-size: 1em;
   margin: 5px 10px;
+  text-decoration: underline;
 }
+
+.info-table a, .index-table a {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+}
+.info-table a:hover, .index-table a:hover {
+  color: white;
+  background-color: black;
+}
+
+
 
 .info-table tr:nth-child(even) {
   background-color: #b7f3f0;
@@ -160,8 +184,10 @@ nav li {
 
 h4 {
   margin: 0px;
-  font-size: x-large;
+  font-size: large;
+  font-family: "Verdana";
 }
+
 
 nav img {
   margin: 5px;
@@ -214,4 +240,9 @@ nav a:hover{
 
 .content {
   flex: 1;
+}
+
+h3 {
+  text-align: center;
+  font-family: "Verdana"
 }

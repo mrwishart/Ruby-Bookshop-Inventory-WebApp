@@ -38,7 +38,7 @@
     </td>
     <td>
       <% if book.authors.empty? %>
-        <b>Missing:</b> <a href="/bookauthors/<%=book.id%>/edit">Please enter</a>
+        <a href="/bookauthors/<%=book.id%>/edit"><%=CSSHelper.no_objects%></a>
       <% else %>
         <% for author in book.authors %>
          <a href="../authors/<%=author.id%>"><%= author.pretty_name%></a><br>
