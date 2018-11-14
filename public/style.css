@@ -100,8 +100,15 @@ nav li {
 }
 
 .index-table thead {
-  background-color: #8e000047;
+  background-color: #b8aac7;
 }
+
+.index-table td, th {
+  text-align: center;
+  border: 1px solid black;
+  padding: 13px 0px;
+}
+
 
 .in-stock {
   background-color: #95c795a1;
@@ -113,12 +120,6 @@ nav li {
 
 .out-of-stock {
   background-color: #e66f6fc9
-}
-
-.index-table td, th {
-  text-align: center;
-  border: 1px solid black;
-  padding: 13px 0px;
 }
 
 .info-table td, th {
@@ -149,9 +150,10 @@ nav li {
   background-color: #b7f3f0;
 }
 
-.info-table tr:nth-child(odd) {
+.info-table tr:nth-child(odd){
   background-color: #70d4da;
 }
+
 
 h4 {
   margin: 0px;

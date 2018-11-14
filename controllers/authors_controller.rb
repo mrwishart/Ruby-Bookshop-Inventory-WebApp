@@ -54,8 +54,12 @@ end
 # UPDATE
 
 post '/authors/:id' do
-  default_name = {"first_name" => "Guy", "last_name" => "Incognito"}
-  params = default_name if params['first_name'] == "" && params['last_name'] == ""
+
+  if (params['first_name'] == "" && params['last_name'] == "")
+    params['first_name'] = "Guy"
+    params['last_name'] = "Incognito"
+  end
+
   @author = Author.new(params)
   @author.update
   redirect to '/authors/' + @author.id.to_s

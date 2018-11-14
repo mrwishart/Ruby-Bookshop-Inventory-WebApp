@@ -1,15 +1,17 @@
+<form action="/books/<%=@book.id%>" method="post">
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/books/new">Add Book</a>
+    <div class="button">
+    <input type ="submit" value="Save Book">
+    </div>
   </div>
 </div>
-
-<form action="/books/<%=@book.id%>" method="post">
+<div class = "info-table">
 
   <table>
     <tr>
       <td>
-        <label for="title">Title:</label>
+        <h6><label for="title">Title:</label></h6>
       </td>
       <td>
         <input id="title" type="text" name="title" value="<%=@book.title%>">
@@ -17,7 +19,7 @@
     </tr>
     <tr>
       <td>
-        <label for="edition">Edition:</label>
+        <h6><label for="edition">Edition:</label></h6>
       </td>
       <td>
         <input id="edition" type="text" name="edition" value="<%=@book.edition%>">
@@ -26,7 +28,7 @@
 
     <tr>
       <td>
-        <label for="authors">Author(s):</label>
+        <h6><label for="authors">Author(s):</label></h6>
       </td>
       <td>
         <select id="authors" name="author_ids[]" size="3" multiple>
@@ -40,7 +42,7 @@
 
     <tr>
       <td>
-        <label for="genres">Genre(s):</label>
+        <h6><label for="genres">Genre(s):</label></h6>
       </td>
       <td>
         <select id="genres" name="genre_ids[]" size="3" multiple>
@@ -55,7 +57,7 @@
 
     <tr>
       <td>
-        <label for="year-published">Year Published:</label>
+        <h6><label for="year-published">Year Published:</label></h6>
       </td>
       <td>
         <input id="year-published" type="number" name="year_published" value = "<%=@book.year_published%>">
@@ -63,7 +65,7 @@
     </tr>
     <tr>
       <td>
-        <label for="rrp">RRP (£):</label>
+        <h6><label for="rrp">RRP (£):</label></h6>
       </td>
       <td>
         <input id="rrp" type="number" name="rrp" min="0" step = "0.01" value="<%=@book.rrp%>">
@@ -71,15 +73,15 @@
     </tr>
     <tr>
       <td>
-        <label for="quantity">Quantity:</label>
+        <h6><label for="quantity">Quantity:</label></h6>
       </td>
       <td>
-        <input id="quantity" type="number" name="quantity" min="0" value="1" value="<%=@book.quantity%>">
+        <input id="quantity" type="number" name="quantity" min="0" step="1" value="<%=@book.quantity%>">
       </td>
     </tr>
     <tr>
       <td>
-        <label for="wholesaler">Wholesaler:</label>
+        <h6><label for="wholesaler">Wholesaler:</label></h6>
       </td>
       <td>
         <select id="wholesaler" name="wholesale_id">
@@ -94,13 +96,14 @@
     </tr>
     <tr>
       <td>
-        <label for="description">Description:</label>
+        <h6><label for="description">Description:</label></h6>
       </td>
       <td>
         <textarea id="description"  name="description" rows = "3" col = "26" maxlength="255"><%=@book.description%></textarea>
       </td>
     </tr>
   </table>
-  <input type ="submit" value="Save Book">
+
 
 </form>
+</div>
