@@ -128,6 +128,10 @@ nav li {
   padding: 13px 0px;
 }
 
+.info-table th, .index-table th {
+  font-size: 19px;
+}
+
 .info-table table {
   margin: auto;
 }
@@ -154,10 +158,9 @@ nav li {
   background-color: #70d4da;
 }
 
-
 h4 {
   margin: 0px;
-  font-size: larger
+  font-size: x-large;
 }
 
 nav img {
