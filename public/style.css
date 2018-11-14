@@ -1,6 +1,7 @@
 html {
   height: 100%;
   min-width: 600px;
+  background-color: antiquewhite;
 }
 
 footer {
@@ -43,8 +44,6 @@ body {
 
 nav li {
   display: inline;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
 }
 
 .sub-header-container {
@@ -65,7 +64,7 @@ nav li {
   overflow-y: auto;
 }
 
-.sub-header a{
+.sub-header a, .button input{
   display: inline-block;
   margin: 4px 0px 5px 0px;
   border-radius: 90px;
@@ -81,6 +80,14 @@ nav li {
 
 .sub-header a:hover {
   background-color: #134f8c;
+}
+
+.sub-header .button input {
+  background-color: #a93b3b
+}
+
+.sub-header .button input:hover {
+  background-color: #501b1b;
 }
 
 .index-table {
@@ -114,8 +121,41 @@ nav li {
   padding: 13px 0px;
 }
 
+.info-table td, th {
+  text-align: center;
+  border: 1px solid grey;
+  padding: 13px 0px;
+}
+
+.info-table table {
+  margin: auto;
+}
+
+.info-table {
+  margin: 20px 0px;
+}
+
 .info-table td {
-  text-align: left;
+  text-align: center;
+  width: 150px;
+}
+
+.info-table h6 {
+  font-size: 1em;
+  margin: 5px 10px;
+}
+
+.info-table tr:nth-child(even) {
+  background-color: #b7f3f0;
+}
+
+.info-table tr:nth-child(odd) {
+  background-color: #70d4da;
+}
+
+h4 {
+  margin: 0px;
+  font-size: larger
 }
 
 nav img {

@@ -53,6 +53,17 @@ class Book
     return results.map {|book| Book.new(book)}
   end
 
+  def self.search_authors(books, input_string)
+    new_book_array = []
+    books.each do |book|
+      if book.authors_names.include?(input_string.downcase)
+        new_book_array << book
+      end
+    end
+
+    return new_book_array
+  end
+
   # Instance functions
 
   def save
@@ -172,14 +183,14 @@ class Book
     return results.map {|author| Author.new(author)}
   end
 
-  # def authors_names
-  #   book_authors = authors()
-  #   return "What: Please enter" if book_authors.nil?
-  #
-  #   author_name_array = book_authors.map {|author| author.pretty_name}
-  #
-  #   return author_name_array.join(', ')
-  # end
+  def authors_names
+    book_authors = authors()
+    return "" if book_authors.nil?
+
+    author_name_array = book_authors.map {|author| author.pretty_name}
+
+    return author_name_array.join(' ').downcase 
+  end
 
   def other_authors
     sql = "SELECT authors.*

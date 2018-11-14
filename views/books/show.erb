@@ -1,19 +1,22 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/books/new">Add Book</a>
+    <a href="/books/<%=@book.id%>/edit">Edit Book</a>
+    <h4><%=@book.title%></h4>
+    <div class = "button">
+    <form action="/books/<%=@book.id%>/delete" method="post">
+      <input type="submit" value="DELETE BOOK!">
+    </form>
+    </div>
   </div>
 </div>
 
-<h2><%=@book.title%></h2>
-<a href="/books/<%=@book.id%>/edit">(edit)</a>
-<hr>
+<div class = "info-table">
 <table>
-  <div class = "info-table">
   <tr>
-    <td>Edition:</td><td> <%=@book.edition%></td>
+    <td><h6>Edition:</h6></td><td> <%=@book.edition%></td>
   </tr>
   <tr>
-    <td><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a></td>
+    <td><h6><a href="/bookauthors/<%=@book.id%>/edit">Author(s):</a><h6></td>
     <td>
       <% if @book.authors.empty? %>
       <b>Missing:</b> <a href="/bookauthors/<%=@book.id%>/edit">Please enter</a>
@@ -28,7 +31,7 @@
     </td>
   </tr>
   <tr>
-    <td><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></td>
+    <td><h6><a href="/bookgenres/<%=@book.id%>/edit">Genre(s):</a></h6></td>
     <td>
       <% if @book.genres.empty? %>
       <b>Missing:</b> <a href="/bookgenres/<%=@book.id%>/edit">Please enter</a>
@@ -40,30 +43,30 @@
     </td>
   </tr>
   <tr>
-    <td>Year Published:</td> <td><%=@book.year_published%></td>
+    <td><h6>Year Published:</h6></td> <td><%=@book.year_published%></td>
   </tr>
   <tr>
-    <td>RRP:</td>
+    <td><h6>RRP:</h6></td>
     <td> £<%=@book.rrp%></td>
   </tr>
   <tr>
-    <td>Discount:</td>
+    <td><h6>Discount:</h6></td>
     <td><%=@book.discount%>%</td>
   </tr>
   <tr>
-    <td>Value:</td>
+    <td><h6>Value:</h6></td>
     <td>£<%=@book.value_owed%></td>
   </tr>
   <tr>
-    <td>Profit:</td>
+    <td><h6>Profit:</h6></td>
     <td>£<%=@book.profit%></td>
   </tr>
   <tr>
-    <td>Quantity:</td>
+    <td><h6>Quantity:</h6></td>
     <td><%=@book.quantity%></td>
   </tr>
   <tr>
-    <td>Wholesaler:</td>
+    <td><h6>Wholesaler:</h6></td>
     <td>
       <% if !@book.wholesaler.nil? %>
       <a href="../wholesalers/<%=@book.wholesale_id%>">
@@ -75,12 +78,8 @@
     </td>
   </tr>
   <tr>
-    <td>Description:</td>
+    <td><h6>Description:</h6></td>
     <td><%=@book.description%></td>
   </tr>
-  </div>
 </table>
-
-<form action="/books/<%=@book.id%>/delete" method="post">
-  <input type="submit" value="DELETE BOOK!">
-</form>
+</div>

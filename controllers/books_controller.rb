@@ -41,7 +41,19 @@ end
 # SEARCH
 
 post '/books' do
-  @books = Book.find_by_string(params['search_title'])
+  # If title field is empty, return all books
+  if params['search_title'] == "" || params['search_title'].nil?
+    @books = Book.all()
+  else
+    # Otherwise, find books by the string
+    @books = Book.find_by_string(params['search_title'])
+  end
+
+  # If author field isn't empty, remove books that don't fit author input
+  if params['search_author'] != "" && !params['search_author'].nil?
+    @books = Book.search_authors(@books, params['search_author'])
+  end
+
   erb(:"books/index")
 end
 
