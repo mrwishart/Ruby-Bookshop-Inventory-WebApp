@@ -1,36 +1,39 @@
 <div class = "sub-header-container">
   <div class = "sub-header">
-    <a href="/wholesalers/new">Add Wholesaler</a>
+    <a href="/wholesalers/<%= @wholesaler.id %>/edit">Edit</a>
+    <h4><%=@wholesaler.name%> Wholesaler</h4>
+    <div class="button">
+      <form action="/wholesalers/<%=@wholesaler.id%>/delete" method="post">
+        <input type="submit" value="DELETE!">
+      </form>
+    </div>
   </div>
 </div>
 
-<h2><%=@wholesaler.name%></h2>
-<a href="/wholesalers/<%= @wholesaler.id %>/edit"><p>(edit)</p></a>
-<form action="/wholesalers/<%=@wholesaler.id%>/delete" method="post">
-  <input type="submit" value="DELETE WHOLESALER!">
-</form>
+
+<div class = "info-table">
 
 <table>
   <tr>
-    <td><b>Address:<b></td>
+    <td><h6>Address:</h6></td>
     <td><%=@wholesaler.address%></td>
   </tr>
   <tr>
-    <td><b>Contact Number:<b></td>
+    <td><h6>Contact Number:</h6></td>
     <td><%=@wholesaler.contact_number%></td>
   </tr>
   <tr>
-    <td><b>Discount Offered:<b></td>
+    <td><h6>Discount Offered:</h6></td>
     <td><%=@wholesaler.discount_offered%>%</td>
   </tr>
 </table>
+
+</div>
+
+
+<% if !@wholesaler.books.empty? %>
 <hr>
-
-<% if @wholesaler.books.empty? %>
-<p>No books currently in-store</p>
-  <% else %>
-
-<p>Books currently on sale:</p><br>
+<div class = "info-table">
 
 <table>
   <tr>
@@ -55,5 +58,7 @@
   <% end %>
 
 </table>
+
+</div>
 
 <% end %>

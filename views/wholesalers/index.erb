@@ -4,11 +4,13 @@
   </div>
 </div>
 
-<hr>
+<div class="info-table">
+
 <table>
   <tr>
     <th>Name</th>
     <th>Discount Offered</th>
+    <th>Address</th>
     <th>Contact Number</th>
   </tr>
 
@@ -16,8 +18,10 @@
   <tr>
     <td><a href="/wholesalers/<%=wholesaler.id%>"><%=wholesaler.name%></a></td>
     <td><%=wholesaler.discount_offered%>%</td>
+    <td><%=wholesaler.address%></td>
     <td><%=wholesaler.contact_number%></td>
   </tr>
 
   <% end %>
 </table>
+</div>
