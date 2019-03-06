@@ -4,7 +4,6 @@ require_relative('../models/bookauthor')
 require_relative('../models/bookgenre')
 require_relative('../models/genre')
 require_relative('../models/wholesaler')
-require('pry-byebug')
 
 Wholesaler.delete_all()
 BookAuthor.delete_all()
@@ -117,5 +116,4 @@ new_book4.add_author(new_author1)
 # new_bookauthor3.save
 # new_bookauthor4.save
 
-binding.pry
 nil

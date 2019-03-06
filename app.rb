@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all') if development?
-also_reload('./models/*')
+# also_reload('./models/*')
 
 require_relative('./controllers/authors_controller')
 require_relative('./controllers/books_controller')
